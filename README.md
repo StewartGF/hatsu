@@ -10,3 +10,5 @@ Listado de APIs públicas, además, te da la posibilidad de obtener alguna de ma
 * [ ] Implementar Tailwind
 * [ ] Crear vista para entregar una API de manera random
 * [ ] Crear una vista que entrega una API de manera random pero con algunos filtros
+* [ ] Implementar Firebase
+* [ ] Implementar autenticacion de Firebase
