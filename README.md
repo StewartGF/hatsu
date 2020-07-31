@@ -12,3 +12,4 @@ Listado de APIs públicas, además, te da la posibilidad de obtener alguna de ma
 * [ ] Crear una vista que entrega una API de manera random pero con algunos filtros
 * [ ] Implementar Firebase
 * [ ] Implementar autenticacion de Firebase
+* [ ] Hacer una vista donde la gente pueda agregar una URL a un repo basado en alguna de estas API para que les sirva como inspiración al resto
