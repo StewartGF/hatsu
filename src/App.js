@@ -1,26 +1,26 @@
 import React from "react";
-import Navbar from "./components/Navbar";
-import Apis from "./components/Apis";
+import Navbar from "./components/Navbar/Navbar";
+import ApiContainer from "./components/ApisContainer/ApiContainer";
 import Landing from "./components/Landing";
-import Projects from "./components/Projects";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Projects from "./components/ProjectsContainer/Projects";
+import { Switch, Route } from "react-router-dom";
 
 function App() {
   return (
-    <Router>
+    <>
       <Navbar />
       <Switch>
         <Route exact path="/">
           <Landing />
         </Route>
-        <Route path="/apis">
-          <Apis />
+        <Route path="/api">
+          <ApiContainer />
         </Route>
         <Route path="/projects">
           <Projects />
         </Route>
       </Switch>
-    </Router>
+    </>
   );
 }
 
