@@ -8,7 +8,7 @@ const Navbar = () => {
       <nav className="flex items-center justify-between flex-wrap bg-white p-6 shadow-md">
         <div className="flex items-center flex-shrink-0 text-white mr-6">
           <Link to="/">
-            <span className="font-semibold text-xl tracking-wide font-black text-black  pl-2 pr-4 border-r-2 border-red-500">
+            <span className="text-xl tracking-wide font-black text-black  pl-2 pr-4 border-r-2 border-red-500">
               🩸 Hatsu
             </span>
           </Link>

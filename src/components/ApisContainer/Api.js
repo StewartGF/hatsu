@@ -7,7 +7,7 @@ const Apis = () => {
         <div id="top-container" className="text-xl flex align-center">
           <div id="imageContainer" className="w-1/5 flex mx-auto">
             <img
-              class="w-10  h-10 rounded-full mx-auto"
+              className="w-10  h-10 rounded-full mx-auto"
               src="images/kitsu.png"
               alt="logo"
             />
@@ -24,14 +24,14 @@ const Apis = () => {
             Share anime and manga experiences, get recommendations and see what
             friends are watching or reading.
           </p>
-          <div class="px-6 py-4">
-            <span class="inline-block bg-red-100 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mx-2 border-2  ">
+          <div className="px-6 py-4">
+            <span className="inline-block bg-red-100 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mx-2 border-2  ">
               #Oauth
             </span>
-            <span class="inline-block bg-red-100 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mx-2 border-2 ">
+            <span className="inline-block bg-red-100 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mx-2 border-2 ">
               #Anime
             </span>
-            <span class="inline-block bg-red-100 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mx-2 border-2 ">
+            <span className="inline-block bg-red-100 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mx-2 border-2 ">
               #Rankings
             </span>
           </div>
