@@ -50,6 +50,12 @@ const Navbar = () => {
                 >
                   Proyectos
                 </Link>
+                <Link
+                  to="/add-api"
+                  className="block mt-4 md:inline-block md:mt-0 text-black hover:text-gray-500 font-medium mr-4"
+                >
+                  Agregar API
+                </Link>
               </div>
             </div>
           </div>
@@ -74,6 +80,12 @@ const Navbar = () => {
                   className="block mt-4 md:inline-block md:mt-0 text-black hover:text-gray-500 font-medium mr-4"
                 >
                   Proyectos
+                </Link>
+                <Link
+                  to="/add-api"
+                  className="block mt-4 md:inline-block md:mt-0 text-black hover:text-gray-500 font-medium mr-4"
+                >
+                  Agregar API
                 </Link>
               </div>
             </div>

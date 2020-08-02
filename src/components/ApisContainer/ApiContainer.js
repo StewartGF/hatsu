@@ -1,7 +1,10 @@
 import React, { useState } from "react";
+import { connect } from "react-redux";
 import Api from "./Api";
 
-const ApiContainer = () => {
+const ApiContainer = (props) => {
+  const { apis } = props;
+
   const [busqueda, setBusqueda] = useState("");
 
   const handleChange = (e) => {
@@ -32,28 +35,18 @@ const ApiContainer = () => {
         </div>
       </form>
       <div className="container mx-auto px-2 w-full h-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  gap-8 mt-12">
-        <Api />
-        <Api />
-        <Api />
-        <Api />
-        <Api />
-        <Api />
-        <Api />
-        <Api />
-        <Api />
-        <Api />
-        <Api />
-        <Api />
-        <Api />
-        <Api />
-        <Api />
-        <Api />
-        <Api />
-        <Api />
-        <Api />
+        {apis && //valido que existan apis
+          apis.map((api) => {
+            return <Api data={api} key={api.id} />;
+          })}
       </div>
     </div>
   );
 };
-
-export default ApiContainer;
+const mapStateToProps = (state) => {
+  return {
+    //se busca del state, en el rootReducer la propiedad apiReducer que contiene todo lo de apiReducer y se rescata del initialState "apis" que contiene todas las apis
+    apis: state.apiReducer.apis,
+  };
+};
+export default connect(mapStateToProps)(ApiContainer);
