@@ -22,6 +22,7 @@ export const getApis = () => {
     try {
       const db = getFirestore();
       const response = await db.collection("apis").get();
+      console.log("una llamada a la api");
       const dataSend = [];
       response.forEach((document) => {
         dataSend.push({ ...document.data(), id: document.id }); // pasamos toda la data, además, le creamos un campo id con el id del documento de Firebase

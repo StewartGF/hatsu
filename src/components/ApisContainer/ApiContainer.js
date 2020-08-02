@@ -8,12 +8,10 @@ const ApiContainer = ({ dispatch }) => {
   const [busqueda, setBusqueda] = useState("");
 
   useEffect(() => {
-    if (apis.length > 0) {
-      console.log("ya tienes data cargada");
-    } else {
+    if (apis.length === 0) {
       dispatch(getApis());
     }
-  }, []);
+  }, [apis]);
   const handleChange = (e) => {
     e.preventDefault();
     setBusqueda(e.target.value);
@@ -23,7 +21,7 @@ const ApiContainer = ({ dispatch }) => {
     console.log(busqueda);
   };
   return (
-    <div className="container mx-auto  w-full h-full">
+    <div className="container mx-auto pb-6 w-full h-full">
       <form className="w-full max-w-sm mx-auto pt-6" onSubmit={onFormSubmit}>
         <div className="flex items-center border-b border-red-500 py-2">
           <input
