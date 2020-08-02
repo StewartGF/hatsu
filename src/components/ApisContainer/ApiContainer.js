@@ -1,12 +1,19 @@
-import React, { useState } from "react";
-import { connect } from "react-redux";
+import React, { useState, useEffect } from "react";
+import { connect, useSelector } from "react-redux";
+import { getApis } from "../../store/actions/apiActions";
 import Api from "./Api";
 
-const ApiContainer = (props) => {
-  const { apis } = props;
-
+const ApiContainer = ({ dispatch }) => {
+  const { apis } = useSelector(mapState);
   const [busqueda, setBusqueda] = useState("");
 
+  useEffect(() => {
+    if (apis.length > 0) {
+      console.log("ya tienes data cargada");
+    } else {
+      dispatch(getApis());
+    }
+  }, []);
   const handleChange = (e) => {
     e.preventDefault();
     setBusqueda(e.target.value);
@@ -43,10 +50,10 @@ const ApiContainer = (props) => {
     </div>
   );
 };
-const mapStateToProps = (state) => {
+const mapState = (state) => {
   return {
     //se busca del state, en el rootReducer la propiedad apiReducer que contiene todo lo de apiReducer y se rescata del initialState "apis" que contiene todas las apis
     apis: state.apiReducer.apis,
   };
 };
-export default connect(mapStateToProps)(ApiContainer);
+export default connect(mapState)(ApiContainer);

@@ -7,9 +7,8 @@ const AddApi = ({ dispatch }) => {
     name: "",
     description: "",
     url: "",
+    imageUrl: "",
   });
-  const [file, setFile] = useState(null);
-  const [imageName, setImageName] = useState("");
   const [tags, setTags] = useState([]);
   const [tagText, setTagText] = useState("");
   const [disable, setDisable] = useState(false);
@@ -19,23 +18,17 @@ const AddApi = ({ dispatch }) => {
       name: "",
       description: "",
       url: "",
+      imageUrl: "",
     });
-    setImageName("");
     setTags([]);
     setTagText("");
     setDisable(false);
-    setFile(null);
   };
 
   const handleDataChange = (e) => {
     setData({ ...data, [e.target.name]: e.target.value });
   };
 
-  const handleImage = (e) => {
-    e.preventDefault();
-    setImageName(e.target.files[0].name);
-    setFile(URL.createObjectURL(e.target.files[0]));
-  };
   const handleTagsSubmit = (e) => {
     if (tagText !== "") {
       e.preventDefault();
@@ -70,7 +63,6 @@ const AddApi = ({ dispatch }) => {
   const handleSubmitApi = (e) => {
     e.preventDefault();
     let dataSend = data;
-    dataSend["image"] = file;
     dataSend["tags"] = tags;
     clearInputs();
     dispatch(createApi(dataSend));
@@ -149,37 +141,19 @@ const AddApi = ({ dispatch }) => {
         <div className="md:w-full flex items-start">
           <label
             className="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4"
-            htmlFor="image"
+            htmlFor="imageUrl"
           >
-            Imagen
+            URL de la imagen
           </label>
         </div>
-        <div className="border-2 border-dashed border-gray-500 relative w-full">
+        <div className="md:w-full">
           <input
-            id="image"
-            type="file"
-            accept="image/x-png,image/gif,image/jpeg"
-            className="cursor-pointer relative block opacity-0 w-full  p-8 pb-2 z-50"
-            onChange={(e) => handleImage(e)}
+            className="bg-transparent appearance-none border-2 border-gray-400 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+            name="imageUrl"
+            type="text"
+            value={data.imageUrl}
+            onChange={handleDataChange}
           />
-          <div className="text-center text-gray-500 pt-4 absolute top-0 right-0 left-0 m-auto">
-            {imageName !== "" ? (
-              <p className="truncate">{imageName}</p>
-            ) : (
-              <p>
-                Arrastra o haz click para <br /> seleccionar una imagen
-              </p>
-            )}
-          </div>
-          {file && (
-            <div className="md:w-full p-4">
-              <img
-                src={file}
-                alt="imagenApi"
-                className="w-12  h-12 rounded-full mx-auto"
-              />
-            </div>
-          )}
         </div>
       </div>
       <form

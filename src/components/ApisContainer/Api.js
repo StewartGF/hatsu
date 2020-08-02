@@ -9,7 +9,7 @@ const Apis = (props) => {
           <div id="imageContainer" className="w-1/5 flex mx-auto">
             <img
               className="w-10  h-10 rounded-full mx-auto"
-              src={data.img}
+              src={data.imageUrl}
               alt="logo"
             />
           </div>
@@ -22,12 +22,12 @@ const Apis = (props) => {
         </div>
         <div id="bottom-container" className="  mt-4">
           <p>{data.description}</p>
-          <div className="px-6 py-4">
+          <div className="px-2 py-4">
             {data.tags &&
               data.tags.map((tag) => {
                 return (
                   <span
-                    className="inline-block bg-red-100 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mx-2 border-2 "
+                    className="inline-block bg-red-100 rounded-full px-3 py-1 text-xs xl:text-sm  font-semibold text-gray-700  border-2 "
                     key={tag}
                   >
                     #{tag}
