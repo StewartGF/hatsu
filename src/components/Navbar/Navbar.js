@@ -7,9 +7,11 @@ const Navbar = () => {
     <div>
       <nav className="flex items-center justify-between flex-wrap bg-white p-6 shadow-md">
         <div className="flex items-center flex-shrink-0 text-white mr-6">
-          <span className="font-semibold text-xl tracking-wide font-black text-black  pl-2 pr-4 border-r-2 border-red-500">
-            🩸 Hatsu
-          </span>
+          <Link to="/">
+            <span className="text-xl tracking-wide font-black text-black  pl-2 pr-4 border-r-2 border-red-500">
+              🩸 Hatsu
+            </span>
+          </Link>
         </div>
         <div className="block md:hidden">
           <button
@@ -37,7 +39,7 @@ const Navbar = () => {
                   Inicio
                 </Link>
                 <Link
-                  to="/apis"
+                  to="/api"
                   className="block mt-4 md:inline-block md:mt-0 text-black hover:text-gray-500 font-medium mr-4"
                 >
                   APIs Públicas
@@ -47,6 +49,12 @@ const Navbar = () => {
                   className="block mt-4 md:inline-block md:mt-0 text-black hover:text-gray-500 font-medium mr-4"
                 >
                   Proyectos
+                </Link>
+                <Link
+                  to="/add-api"
+                  className="block mt-4 md:inline-block md:mt-0 text-black hover:text-gray-500 font-medium mr-4"
+                >
+                  Agregar API
                 </Link>
               </div>
             </div>
@@ -62,7 +70,7 @@ const Navbar = () => {
                   Inicio
                 </Link>
                 <Link
-                  to="/apis"
+                  to="/api"
                   className="block mt-4 md:inline-block md:mt-0 text-black hover:text-gray-500 font-medium mr-4"
                 >
                   APIs Públicas
@@ -72,6 +80,12 @@ const Navbar = () => {
                   className="block mt-4 md:inline-block md:mt-0 text-black hover:text-gray-500 font-medium mr-4"
                 >
                   Proyectos
+                </Link>
+                <Link
+                  to="/add-api"
+                  className="block mt-4 md:inline-block md:mt-0 text-black hover:text-gray-500 font-medium mr-4"
+                >
+                  Agregar API
                 </Link>
               </div>
             </div>
