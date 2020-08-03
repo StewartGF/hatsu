@@ -11,7 +11,8 @@ const ApiContainer = ({ dispatch }) => {
     if (apis.length === 0) {
       dispatch(getApis());
     }
-  }, [apis]);
+  }, []);
+
   const handleChange = (e) => {
     e.preventDefault();
     setBusqueda(e.target.value);
@@ -39,12 +40,25 @@ const ApiContainer = ({ dispatch }) => {
           </button>
         </div>
       </form>
-      <div className="container mx-auto px-2 w-full h-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  gap-8 mt-12">
-        {apis && //valido que existan apis
-          apis.map((api) => {
-            return <Api data={api} key={api.id} />;
-          })}
-      </div>
+      {apis.length === 0 ? (
+        <div className="container mx-auto text-center relative text-black align-middle pt-2">
+          <div id="title" className="text-3xl text-gray-600 m-auto pt-32">
+            <p>
+              <span role="img" aria-label="img">
+                🧙🏻‍♂️
+              </span>
+              Cargando....
+            </p>
+          </div>
+        </div>
+      ) : (
+        <div className="container mx-auto px-2 w-full h-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  gap-8 mt-12">
+          {apis && //valido que existan apis
+            apis.map((api) => {
+              return <Api data={api} key={api.id} />;
+            })}
+        </div>
+      )}
     </div>
   );
 };
