@@ -2,6 +2,7 @@ import React, { useState, Fragment } from "react";
 import { connect, useSelector } from "react-redux";
 import { createApi } from "../../store/actions/apiActions";
 import Loading from "../Loading";
+import { toast } from "react-toastify";
 
 const AddApi = ({ dispatch }) => {
   const { loading: isLoading } = useSelector(mapState);
@@ -14,7 +15,16 @@ const AddApi = ({ dispatch }) => {
   const [tags, setTags] = useState([]);
   const [tagText, setTagText] = useState("");
   const [disable, setDisable] = useState(false);
-
+  const notify = () =>
+    toast("🧙🏻‍♂️ Se agregó la API", {
+      position: "bottom-center",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
   const clearInputs = () => {
     setData({
       name: "",
@@ -70,7 +80,7 @@ const AddApi = ({ dispatch }) => {
     dispatch(createApi(dataSend));
   };
   return (
-    <>
+    <div className="pb-2">
       <div className="container mx-auto text-center relative text-black align-middle pt-2">
         <div id="title" className="text-3xl text-gray-600">
           <p>
@@ -81,6 +91,7 @@ const AddApi = ({ dispatch }) => {
             Formulario para crear una API
           </p>
         </div>
+        <button onClick={notify}>Notify !</button>
       </div>
       <div className="container w-3/4 lg:w-2/5 mx-auto mt-6  md:items-center mb-2">
         <div className="md:w-full flex items-start">
@@ -235,7 +246,7 @@ const AddApi = ({ dispatch }) => {
         </button>
       </div>
       {isLoading ? <Loading /> : <></>}
-    </>
+    </div>
   );
 };
 const mapState = (state) => {

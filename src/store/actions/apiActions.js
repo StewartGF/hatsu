@@ -1,5 +1,6 @@
 import { db, firestore } from "../../configs/fbConfig";
 import { pushId } from "../../utils/pushid";
+import { toast } from "react-toastify";
 
 export const createApi = (api) => {
   return async (dispatch, getState) => {
@@ -21,6 +22,15 @@ export const createApi = (api) => {
         });
       dispatch({ type: "ADD_API", payload: newApi });
       dispatch({ type: "LOADING" });
+      toast("🧙🏻‍♂️ Se agregó la API", {
+        position: "bottom-center",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
     } catch (error) {
       dispatch({ type: "LOADING" });
       console.log(error);
