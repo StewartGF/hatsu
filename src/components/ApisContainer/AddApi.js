@@ -15,16 +15,6 @@ const AddApi = ({ dispatch }) => {
   const [tags, setTags] = useState([]);
   const [tagText, setTagText] = useState("");
   const [disable, setDisable] = useState(false);
-  const notify = () =>
-    toast("🧙🏻‍♂️ Se agregó la API", {
-      position: "bottom-center",
-      autoClose: 3000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-    });
   const clearInputs = () => {
     setData({
       name: "",
@@ -91,7 +81,6 @@ const AddApi = ({ dispatch }) => {
             Formulario para crear una API
           </p>
         </div>
-        <button onClick={notify}>Notify !</button>
       </div>
       <div className="container w-3/4 lg:w-2/5 mx-auto mt-6  md:items-center mb-2">
         <div className="md:w-full flex items-start">
