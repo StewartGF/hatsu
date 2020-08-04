@@ -143,7 +143,7 @@ const AddApi = ({ dispatch }) => {
         </div>
         <div className="md:w-full">
           <input
-            className="bg-transparent appearance-none border-2 border-gray-400 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+            className="bg-transparent appearance-none border-2 border-gray-400 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-red-400"
             name="name"
             type="text"
             ref={nameInput}
@@ -163,7 +163,7 @@ const AddApi = ({ dispatch }) => {
         </div>
         <div className="md:w-full">
           <input
-            className="bg-transparent appearance-none border-2 border-gray-400 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+            className="bg-transparent appearance-none border-2 border-gray-400 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-red-400"
             name="url"
             ref={urlInput}
             type="text"
@@ -183,7 +183,7 @@ const AddApi = ({ dispatch }) => {
         </div>
         <div className="md:w-full">
           <textarea
-            className="bg-transparent appearance-none border-2 border-gray-400 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+            className="bg-transparent appearance-none border-2 border-gray-400 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-red-400"
             name="description"
             type="text"
             ref={descriptionInput}
@@ -203,7 +203,7 @@ const AddApi = ({ dispatch }) => {
         </div>
         <div className="md:w-full">
           <input
-            className="bg-transparent appearance-none border-2 border-gray-400 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+            className="bg-transparent appearance-none border-2 border-gray-400 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-red-400"
             name="imageUrl"
             type="text"
             ref={urlImageInput}
