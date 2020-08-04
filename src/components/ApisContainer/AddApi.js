@@ -1,11 +1,24 @@
-import React, { useState, Fragment } from "react";
+import React, { useState, Fragment, useRef } from "react";
 import { connect, useSelector } from "react-redux";
 import { createApi } from "../../store/actions/apiActions";
 import Loading from "../Loading";
 import { toast } from "react-toastify";
+//CUSTOM HOOKS
+const useFocus = () => {
+  const htmlElRef = useRef(null);
+  const setFocus = () => {
+    htmlElRef.current && htmlElRef.current.focus();
+  };
+
+  return [htmlElRef, setFocus];
+};
 
 const AddApi = ({ dispatch }) => {
   const { loading: isLoading } = useSelector(mapState);
+  const [nameInput, setNameInput] = useFocus();
+  const [urlInput, setUrlInput] = useFocus();
+  const [descriptionInput, setDescriptionInput] = useFocus();
+  const [urlImageInput, setUrlImageInput] = useFocus();
   const [data, setData] = useState({
     name: "",
     description: "",
@@ -15,6 +28,7 @@ const AddApi = ({ dispatch }) => {
   const [tags, setTags] = useState([]);
   const [tagText, setTagText] = useState("");
   const [disable, setDisable] = useState(false);
+
   const clearInputs = () => {
     setData({
       name: "",
@@ -61,6 +75,42 @@ const AddApi = ({ dispatch }) => {
       }
     }
   };
+  const dropAnAlert = () => {
+    toast.error("😱 Por favor, llena todos los campos", {
+      position: "bottom-center",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+  };
+  const validateSubmit = (e) => {
+    e.preventDefault();
+    if (data.name === "") {
+      setNameInput();
+      dropAnAlert();
+      return;
+    }
+    if (data.url === "") {
+      setUrlInput();
+      dropAnAlert();
+      return;
+    }
+    if (data.description === "") {
+      setDescriptionInput();
+      dropAnAlert();
+      return;
+    }
+    if (data.imageUrl === "") {
+      setUrlImageInput();
+      dropAnAlert();
+      return;
+    }
+
+    handleSubmitApi(e);
+  };
 
   const handleSubmitApi = (e) => {
     e.preventDefault();
@@ -96,6 +146,7 @@ const AddApi = ({ dispatch }) => {
             className="bg-transparent appearance-none border-2 border-gray-400 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
             name="name"
             type="text"
+            ref={nameInput}
             value={data.name}
             onChange={handleDataChange}
           />
@@ -114,6 +165,7 @@ const AddApi = ({ dispatch }) => {
           <input
             className="bg-transparent appearance-none border-2 border-gray-400 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
             name="url"
+            ref={urlInput}
             type="text"
             value={data.url}
             onChange={handleDataChange}
@@ -134,6 +186,7 @@ const AddApi = ({ dispatch }) => {
             className="bg-transparent appearance-none border-2 border-gray-400 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
             name="description"
             type="text"
+            ref={descriptionInput}
             value={data.description}
             onChange={handleDataChange}
           />
@@ -153,6 +206,7 @@ const AddApi = ({ dispatch }) => {
             className="bg-transparent appearance-none border-2 border-gray-400 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
             name="imageUrl"
             type="text"
+            ref={urlImageInput}
             value={data.imageUrl}
             onChange={handleDataChange}
           />
@@ -228,7 +282,7 @@ const AddApi = ({ dispatch }) => {
       </div>
       <div className="container w-full mx-auto mt-12 flex justify-center flex-wrap md:items-center mb-6">
         <button
-          onClick={handleSubmitApi}
+          onClick={validateSubmit}
           className="flex-shrink-0  font-black bg-red-500 hover:bg-red-700 border-red-500 hover:border-red-700  focus:outline-none text-sm border-4 text-white py-1 px-6 md:px-8 rounded"
         >
           Agregar API !
