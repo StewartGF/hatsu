@@ -1,5 +1,6 @@
 const initialState = {
   apis: [],
+  loading: false,
 };
 
 const apiReducer = (state = initialState, action) => {
@@ -12,6 +13,9 @@ const apiReducer = (state = initialState, action) => {
       return state;
     case "SET_API_DATA":
       state.apis = action.payload;
+      return state;
+    case "LOADING":
+      state.loading = !state.loading;
       return state;
     default:
       return state;

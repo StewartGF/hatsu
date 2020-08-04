@@ -22,13 +22,13 @@ const Apis = (props) => {
             </div>
           </div>
           <div id="bottom-container" className="  mt-4">
-            <p>{data.description}</p>
+            <p className="px-2">{data.description}</p>
             <div className="px-2 py-4">
               {data.tags &&
                 data.tags.map((tag) => {
                   return (
                     <span
-                      className="inline-block bg-red-100 rounded-full px-3 py-1 text-xs xl:text-sm  font-semibold text-gray-700  border-2 "
+                      className="inline-block bg-red-100 rounded-full m-1 px-2 py-1 text-xs xl:text-sm  font-semibold text-gray-700  border-2 "
                       key={tag}
                     >
                       #{tag}

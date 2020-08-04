@@ -1,8 +1,10 @@
 import React, { useState, Fragment } from "react";
-import { connect } from "react-redux";
+import { connect, useSelector } from "react-redux";
 import { createApi } from "../../store/actions/apiActions";
+import Loading from "../Loading";
 
 const AddApi = ({ dispatch }) => {
+  const { loading: isLoading } = useSelector(mapState);
   const [data, setData] = useState({
     name: "",
     description: "",
@@ -232,12 +234,13 @@ const AddApi = ({ dispatch }) => {
           Agregar API !
         </button>
       </div>
+      {isLoading ? <Loading /> : <></>}
     </>
   );
 };
-// const mapDispatchToProps = (dispatch) => {
-//   return {
-//     createApi: (api) => dispatch(createApi(api)),
-//   };
-// };
-export default connect()(AddApi);
+const mapState = (state) => {
+  return {
+    loading: state.apiReducer.loading,
+  };
+};
+export default connect(mapState)(AddApi);
