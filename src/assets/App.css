@@ -12,3 +12,117 @@ body {
   transition: background 0.25s ease-in-out;
   font-size: 14px;
 }
+
+.loader-dots div {
+  animation-timing-function: cubic-bezier(0, 1, 1, 0);
+}
+.loader-dots div:nth-child(1) {
+  left: 8px;
+  animation: loader-dots1 0.6s infinite;
+}
+.loader-dots div:nth-child(2) {
+  left: 8px;
+  animation: loader-dots2 0.6s infinite;
+}
+.loader-dots div:nth-child(3) {
+  left: 32px;
+  animation: loader-dots2 0.6s infinite;
+}
+.loader-dots div:nth-child(4) {
+  left: 56px;
+  animation: loader-dots3 0.6s infinite;
+}
+@keyframes loader-dots1 {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes loader-dots3 {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0);
+  }
+}
+@keyframes loader-dots2 {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(24px, 0);
+  }
+}
+
+/** Used to define container behavior: width, position: fixed etc... **/
+.Toastify__toast-container {
+  margin-bottom: 20px !important;
+}
+
+/** Used to define the position of the ToastContainer **/
+.Toastify__toast-container--top-left {
+}
+.Toastify__toast-container--top-center {
+}
+.Toastify__toast-container--top-right {
+}
+.Toastify__toast-container--bottom-left {
+}
+.Toastify__toast-container--bottom-center {
+}
+.Toastify__toast-container--bottom-right {
+}
+
+/** Classes for the displayed toast **/
+.Toastify__toast {
+}
+.Toastify__toast--rtl {
+}
+.Toastify__toast--dark {
+}
+.Toastify__toast--default {
+  border: 2px solid red;
+  color: #000 !important;
+  border-radius: 6px !important;
+  font-size: 0.9rem;
+}
+.Toastify__toast--info {
+}
+.Toastify__toast--success {
+}
+.Toastify__toast--warning {
+}
+.Toastify__toast--error {
+  border-radius: 6px !important;
+  font-size: 0.9rem !important;
+}
+.Toastify__toast-body {
+}
+
+/** Classes for the close button. Better use your own closeButton **/
+.Toastify__close-button {
+}
+.Toastify__close-button--default {
+}
+.Toastify__close-button > svg {
+}
+.Toastify__close-button:hover,
+.Toastify__close-button:focus {
+}
+
+/** Classes for the progress bar **/
+.Toastify__progress-bar {
+}
+.Toastify__progress-bar--animated {
+}
+.Toastify__progress-bar--controlled {
+}
+.Toastify__progress-bar--rtl {
+}
+.Toastify__progress-bar--default {
+}
+.Toastify__progress-bar--dark {
+}

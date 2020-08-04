@@ -6,12 +6,9 @@ import Api from "./Api";
 const ApiContainer = ({ dispatch }) => {
   const { apis } = useSelector(mapState);
   const [busqueda, setBusqueda] = useState("");
-
   useEffect(() => {
-    if (apis.length === 0) {
-      dispatch(getApis());
-    }
-  }, []);
+    dispatch(getApis());
+  }, [dispatch]);
 
   const handleChange = (e) => {
     e.preventDefault();
@@ -53,10 +50,9 @@ const ApiContainer = ({ dispatch }) => {
         </div>
       ) : (
         <div className="container mx-auto px-2 w-full h-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  gap-8 mt-12">
-          {apis && //valido que existan apis
-            apis.map((api) => {
-              return <Api data={api} key={api.id} />;
-            })}
+          {apis[0].map((api) => {
+            return <Api data={api} key={api.uid} />;
+          })}
         </div>
       )}
     </div>
