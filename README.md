@@ -13,11 +13,11 @@ Se implementará un BAAS, en este caso 🔥Firebase para almacenar la informaci�
 - [x] Crear Navbar
 - [x] Instalar e implementar React Router
 - [x] Instalar e implementar Tailwind para diseño
-- [ ] Crear un mockup de la vista que mostrará las API's, se usará GRID
-- [ ] Agregar data estática para generar diseño / Recopilar data
-- [ ] Agregar Redux para manejar la información en un store global.
-- [ ] Crear Firebase Project
-- [ ] Implementar Firebase con la data que ya se tiene recopilada
+- [x] Crear un mockup de la vista que mostrará las API's, se usará GRID
+- [x] Agregar data estática para generar diseño / Recopilar data
+- [x] Agregar Redux para manejar la información en un store global.
+- [x] Crear Firebase Project
+- [x] Implementar Firebase con la data que ya se tiene recopilada
 - [ ] Crear Landing page
 - [ ] Crear un JSON con APIs publicas
 - [ ] Crear vista para entregar una API de manera random
