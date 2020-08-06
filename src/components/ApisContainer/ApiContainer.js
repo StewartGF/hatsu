@@ -7,7 +7,7 @@ const ApiContainer = ({ dispatch }) => {
   const { apis } = useSelector(mapState);
   const [busqueda, setBusqueda] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-  const limit = 3;
+  const limit = 9;
   useEffect(() => {
     if (apis.length > 0) return;
     async function getData() {
@@ -43,7 +43,6 @@ const ApiContainer = ({ dispatch }) => {
         .orderBy("createdAt")
         .startAfter(last.createdAt)
         .get();
-      console.log(response);
       const dataSend = [];
       response.forEach((document) => {
         dataSend.push(document.data());
@@ -65,7 +64,7 @@ const ApiContainer = ({ dispatch }) => {
     console.log(busqueda);
   };
   return (
-    <div className="container mx-auto pb-6 w-full h-full">
+    <div className="container mx-auto pb-6 w-full h-full flex flex-wrap">
       <form className="w-full max-w-sm mx-auto pt-6" onSubmit={onFormSubmit}>
         <div className="flex items-center border-b border-red-500 py-2">
           <input
@@ -103,7 +102,7 @@ const ApiContainer = ({ dispatch }) => {
       )}
       {!isLoading && (
         <button
-          className="border-2 rounded border-red-500  mx-auto relative w-full bottom-0 p-2 mt-4"
+          className="border-2 rounded border-red-700 tracking-widest hover:bg-red-600  mx-auto relative w-1/4 text-white bg-red-500 font-black bottom-0 p-2 mt-4 "
           onClick={getMore}
         >
           Cargar más
