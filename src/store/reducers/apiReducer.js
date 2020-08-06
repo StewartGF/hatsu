@@ -12,7 +12,9 @@ const apiReducer = (state = initialState, action) => {
       console.log("ADD_API_ERROR", action.payload);
       return state;
     case "SET_API_DATA":
+      console.log("data", action.payload);
       state.apis = action.payload;
+      console.log("newState", state);
       return state;
     case "LOADING":
       state.loading = !state.loading;
