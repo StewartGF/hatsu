@@ -9,7 +9,6 @@ const useFocus = () => {
   const setFocus = () => {
     htmlElRef.current && htmlElRef.current.focus();
   };
-
   return [htmlElRef, setFocus];
 };
 

@@ -1,14 +1,59 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { connect, useSelector } from "react-redux";
-import { getApis } from "../../store/actions/apiActions";
+import { db } from "../../configs/fbConfig";
 import Api from "./Api";
 
 const ApiContainer = ({ dispatch }) => {
   const { apis } = useSelector(mapState);
   const [busqueda, setBusqueda] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+  const limit = 9;
   useEffect(() => {
-    dispatch(getApis());
-  }, [dispatch]);
+    if (apis.length > 0) return;
+    async function getData() {
+      setIsLoading(true);
+      try {
+        const response = await db
+          .collection("api-collection")
+          .orderBy("createdAt")
+          .limit(limit)
+          .get();
+        const dataSend = [];
+        response.forEach((document) => {
+          dataSend.push({ ...document.data(), uid: document.id });
+        });
+        dispatch({ type: "SET_API_DATA", payload: dataSend });
+        setIsLoading(false);
+      } catch (error) {
+        console.log("error", error);
+        setIsLoading(false);
+      }
+    }
+    getData();
+  }, [dispatch, apis.length]);
+
+  const getMore = async (e) => {
+    e.preventDefault();
+    const last = apis[apis.length - 1];
+    setIsLoading(true);
+    try {
+      const response = await db
+        .collection("apis")
+        .limit(limit)
+        .orderBy("createdAt")
+        .startAfter(last.createdAt)
+        .get();
+      const dataSend = [];
+      response.forEach((document) => {
+        dataSend.push(document.data());
+      });
+      dispatch({ type: "SET_API_DATA", payload: apis.concat(dataSend) });
+      setIsLoading(false);
+    } catch (error) {
+      console.log("error", error);
+      setIsLoading(false);
+    }
+  };
 
   const handleChange = (e) => {
     e.preventDefault();
@@ -19,7 +64,7 @@ const ApiContainer = ({ dispatch }) => {
     console.log(busqueda);
   };
   return (
-    <div className="container mx-auto pb-6 w-full h-full">
+    <div className="container mx-auto pb-6 w-full h-full flex flex-wrap">
       <form className="w-full max-w-sm mx-auto pt-6" onSubmit={onFormSubmit}>
         <div className="flex items-center border-b border-red-500 py-2">
           <input
@@ -50,10 +95,18 @@ const ApiContainer = ({ dispatch }) => {
         </div>
       ) : (
         <div className="container mx-auto px-2 w-full h-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  gap-8 mt-12">
-          {apis[0].map((api) => {
+          {apis.map((api) => {
             return <Api data={api} key={api.uid} />;
           })}
         </div>
+      )}
+      {!isLoading && (
+        <button
+          className="border-2 rounded border-red-700 tracking-widest hover:bg-red-600  mx-auto relative w-1/4 text-white bg-red-500 font-black bottom-0 p-2 mt-4 "
+          onClick={getMore}
+        >
+          Cargar más
+        </button>
       )}
     </div>
   );

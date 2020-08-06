@@ -1,4 +1,4 @@
-# 🩸 Hatsu
+#🎴 Hatsū
 
 Listado de APIs públicas, además, te da la posibilidad de obtener alguna de manera random para poder comenzar tu próximo proyecto :)
 
@@ -18,6 +18,9 @@ Se implementará un BAAS, en este caso 🔥Firebase para almacenar la informaci�
 - [x] Agregar Redux para manejar la información en un store global.
 - [x] Crear Firebase Project
 - [x] Implementar Firebase con la data que ya se tiene recopilada
+- [x] Limitar la cantidad de APIs que se carga por Firebase
+- [x] Modificar Favicon - no visible en algunos dispositivos -
+- [x] Modificación para alivianar la carga a Redux
 - [ ] Crear Landing page
 - [ ] Crear un JSON con APIs publicas
 - [ ] Crear vista para entregar una API de manera random

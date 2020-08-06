@@ -9,7 +9,7 @@ const Navbar = () => {
         <div className="flex items-center flex-shrink-0 text-white mr-6">
           <Link to="/">
             <span className="text-xl tracking-wide font-black text-black  pl-2 pr-4 border-r-2 border-red-500">
-              🩸 Hatsu
+              🎴 Hatsū
             </span>
           </Link>
         </div>
