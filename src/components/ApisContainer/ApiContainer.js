@@ -38,8 +38,8 @@ const ApiContainer = ({ dispatch }) => {
     setIsLoading(true);
     try {
       const response = await db
-        .collection("apis")
-        .limit(limit)
+        .collection("api-collection")
+        .limit(limit - 4)
         .orderBy("createdAt")
         .startAfter(last.createdAt)
         .get();
@@ -47,6 +47,7 @@ const ApiContainer = ({ dispatch }) => {
       response.forEach((document) => {
         dataSend.push(document.data());
       });
+      console.log(dataSend);
       dispatch({ type: "SET_API_DATA", payload: apis.concat(dataSend) });
       setIsLoading(false);
     } catch (error) {

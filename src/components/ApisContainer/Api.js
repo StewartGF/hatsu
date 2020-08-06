@@ -4,12 +4,13 @@ const Apis = (props) => {
   const { data } = props;
   return (
     <>
-      <div className="w-full border shadow-lg rounded p-4 ">
+      <div className="w-full h-full border shadow-lg rounded p-4 group transition ease-out duration-500">
         <a href={data.url} target="_blank" rel="noopener noreferrer">
           <div id="top-container" className="text-xl flex align-center">
             <div id="imageContainer" className="w-1/5 flex mx-auto">
               <img
-                className="w-10  h-10 rounded-full mx-auto"
+                className="w-12  h-12 rounded-full mx-auto object-contain duration-500 transform scale-100  md:group-hover:scale-115  xl:group-hover:scale-130"
+                loading="lazy"
                 src={data.imageUrl}
                 alt="logo"
               />
