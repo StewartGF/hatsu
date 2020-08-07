@@ -21,6 +21,8 @@ Se implementará un BAAS, en este caso 🔥Firebase para almacenar la informaci�
 - [x] Limitar la cantidad de APIs que se carga por Firebase
 - [x] Modificar Favicon - no visible en algunos dispositivos -
 - [x] Modificación para alivianar la carga a Redux
+- [x] Agregar Dark mode Toggle + funcionamiento
+- [x] Almacenar el dark mode en el local storage para guardar la selección
 - [ ] Crear Landing page
 - [ ] Crear un JSON con APIs publicas
 - [ ] Crear vista para entregar una API de manera random

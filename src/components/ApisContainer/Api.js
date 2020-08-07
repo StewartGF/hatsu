@@ -1,10 +1,18 @@
 import React from "react";
+import { useSelector } from "react-redux";
 
 const Apis = (props) => {
+  const isDarkMode = useSelector((state) => state.themeReducer.isDarkMode);
   const { data } = props;
   return (
     <>
-      <div className="w-full h-full border shadow-lg rounded p-4 group transition ease-out duration-500">
+      <div
+        className={
+          isDarkMode
+            ? "w-full h-full border shadow-xl rounded p-4 group bg-dark-100 text-white border-black "
+            : "w-full h-full border shadow-xl rounded p-4 group"
+        }
+      >
         <a href={data.url} target="_blank" rel="noopener noreferrer">
           <div id="top-container" className="text-xl flex align-center">
             <div id="imageContainer" className="w-1/5 flex mx-auto">
@@ -29,7 +37,11 @@ const Apis = (props) => {
                 data.tags.map((tag) => {
                   return (
                     <span
-                      className="inline-block bg-red-100 rounded-full m-1 px-2 py-1 text-xs xl:text-sm  font-semibold text-gray-700  border-2 "
+                      className={
+                        isDarkMode
+                          ? "bg-dark-200 text-white inline-block  border-pink-dark rounded-full m-1 px-2 py-1 text-xs xl:text-sm  font-semibold   border-2 "
+                          : "inline-block bg-red-100 rounded-full m-1 px-2 py-1 text-xs xl:text-sm  font-semibold text-gray-700  border-2 "
+                      }
                       key={tag}
                     >
                       #{tag}

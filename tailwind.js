@@ -18,6 +18,11 @@ module.exports = {
       black: "#000",
       white: "#fff",
 
+      dark: {
+        100: "#3C3A57",
+        200: "#2E2D42",
+      },
+
       gray: {
         100: "#f7fafc",
         200: "#edf2f7",
@@ -127,6 +132,8 @@ module.exports = {
         700: "#b83280",
         800: "#97266d",
         900: "#702459",
+        dark: "#C094A9",
+        hover: "#CF7C87",
       },
     },
     spacing: {
