@@ -1,15 +1,32 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import ThemeToggle from "./ThemeToggle";
+import { useSelector } from "react-redux";
 
 const Navbar = () => {
+  const isDarkMode = useSelector((state) => state.themeReducer.isDarkMode);
   let [isOpen, setIsOpen] = useState(false);
   return (
-    <div>
-      <nav className="flex items-center justify-between flex-wrap bg-white p-6 shadow-md">
-        <div className="flex items-center flex-shrink-0 text-white mr-6">
+    <div className=" ">
+      <nav
+        className={
+          isDarkMode
+            ? "flex items-center justify-between flex-wrap bg-dark-200 p-6 shadow-md text-white"
+            : "flex items-center justify-between flex-wrap p-6 shadow-md bg-white text-black"
+        }
+      >
+        <div className="flex items-center flex-shrink-0 mr-6 ">
           <Link to="/">
-            <span className="text-xl tracking-wide font-black text-black  pl-2 pr-4 border-r-2 border-red-500">
-              <span role="img" aria-label="emoji"></span>🎴 Hatsū
+            <span
+              className={
+                isDarkMode
+                  ? "text-xl tracking-wide font-black  pl-2 pr-4 border-r-2 border-white"
+                  : "text-xl tracking-wide font-black  pl-2 pr-4 border-r-2 border-red-500"
+              }
+            >
+              <span role="img" aria-label="emoji">
+                🎴 Hatsū
+              </span>
             </span>
           </Link>
         </div>
@@ -34,25 +51,25 @@ const Navbar = () => {
               <div className="text-sm md:flex-grow">
                 <Link
                   to="/"
-                  className="block mt-4 md:inline-block md:mt-0 text-black hover:text-gray-500 font-medium mr-4"
+                  className="font-black block mt-4 md:inline-block md:mt-0 hover:text-gray-500  mr-4"
                 >
                   Inicio
                 </Link>
                 <Link
                   to="/api"
-                  className="block mt-4 md:inline-block md:mt-0 text-black hover:text-gray-500 font-medium mr-4"
+                  className="font-black block mt-4 md:inline-block md:mt-0 hover:text-gray-500  mr-4"
                 >
                   APIs Públicas
                 </Link>
                 <Link
                   to="/projects"
-                  className="block mt-4 md:inline-block md:mt-0 text-black hover:text-gray-500 font-medium mr-4"
+                  className="font-black block mt-4 md:inline-block md:mt-0 hover:text-gray-500  mr-4"
                 >
                   Proyectos
                 </Link>
                 <Link
                   to="/add-api"
-                  className="block mt-4 md:inline-block md:mt-0 text-black hover:text-gray-500 font-medium mr-4"
+                  className="font-black block mt-4 md:inline-block md:mt-0 hover:text-gray-500  mr-4"
                 >
                   Agregar API
                 </Link>
@@ -65,25 +82,25 @@ const Navbar = () => {
               <div className="text-sm md:flex-grow">
                 <Link
                   to="/"
-                  className="block mt-4 md:inline-block md:mt-0 text-black hover:text-gray-500 font-medium mr-4"
+                  className="block mt-4 md:inline-block md:mt-0 hover:text-gray-500 font-black mr-4"
                 >
                   Inicio
                 </Link>
                 <Link
                   to="/api"
-                  className="block mt-4 md:inline-block md:mt-0 text-black hover:text-gray-500 font-medium mr-4"
+                  className="block mt-4 md:inline-block md:mt-0 hover:text-gray-500 font-black mr-4"
                 >
                   APIs Públicas
                 </Link>
                 <Link
                   to="/projects"
-                  className="block mt-4 md:inline-block md:mt-0 text-black hover:text-gray-500 font-medium mr-4"
+                  className="block mt-4 md:inline-block md:mt-0 hover:text-gray-500 font-black mr-4"
                 >
                   Proyectos
                 </Link>
                 <Link
                   to="/add-api"
-                  className="block mt-4 md:inline-block md:mt-0 text-black hover:text-gray-500 font-medium mr-4"
+                  className="block mt-4 md:inline-block md:mt-0 hover:text-gray-500 font-black mr-4"
                 >
                   Agregar API
                 </Link>
@@ -91,6 +108,7 @@ const Navbar = () => {
             </div>
           </div>
         )}
+        <ThemeToggle />
       </nav>
     </div>
   );

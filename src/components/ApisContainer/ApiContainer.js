@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { connect, useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { db } from "../../configs/fbConfig";
 import Api from "./Api";
 
-const ApiContainer = ({ dispatch }) => {
-  const { apis } = useSelector(mapState);
+const ApiContainer = () => {
+  const dispatch = useDispatch();
+  const apis = useSelector((state) => state.apiReducer.apis);
+  const isDarkMode = useSelector((state) => state.themeReducer.isDarkMode);
   const [busqueda, setBusqueda] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const limit = 9;
@@ -35,6 +37,7 @@ const ApiContainer = ({ dispatch }) => {
   const getMore = async (e) => {
     e.preventDefault();
     const last = apis[apis.length - 1];
+    console.log(last);
     setIsLoading(true);
     try {
       const response = await db
@@ -47,7 +50,6 @@ const ApiContainer = ({ dispatch }) => {
       response.forEach((document) => {
         dataSend.push(document.data());
       });
-      console.log(dataSend);
       dispatch({ type: "SET_API_DATA", payload: apis.concat(dataSend) });
       setIsLoading(false);
     } catch (error) {
@@ -67,16 +69,26 @@ const ApiContainer = ({ dispatch }) => {
   return (
     <div className="container mx-auto pb-6 w-full h-full flex flex-wrap">
       <form className="w-full max-w-sm mx-auto pt-6" onSubmit={onFormSubmit}>
-        <div className="flex items-center border-b border-red-500 py-2">
+        <div
+          className={
+            isDarkMode
+              ? "flex items-center border-b border-pink-dark py-2 "
+              : "flex items-center border-b border-red-500 py-2"
+          }
+        >
           <input
-            className="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none"
+            className="appearance-none bg-transparent border-none w-full text-gray-500 mr-3 py-1 px-2 leading-tight focus:outline-none"
             type="text"
             placeholder="¿Qué API buscas?"
             aria-label="Full name"
             onChange={handleChange}
           />
           <button
-            className="flex-shrink-0 bg-red-500 hover:bg-red-700 border-red-500 hover:border-red-700 text-sm border-4 text-white py-1 px-2 rounded"
+            className={
+              isDarkMode
+                ? "flex-shrink-0 bg-pink-dark hover:bg-pink-hover border-pink-hover -hover text-sm text-white py-1 px-2 rounded"
+                : "flex-shrink-0 bg-red-500 hover:bg-red-700 border-red-500 text-sm text-white py-1 px-2 rounded"
+            }
             type="submit"
           >
             Buscar
@@ -103,7 +115,11 @@ const ApiContainer = ({ dispatch }) => {
       )}
       {!isLoading && (
         <button
-          className="border-2 rounded border-red-700 tracking-widest hover:bg-red-600  mx-auto relative w-1/4 text-white bg-red-500 font-black bottom-0 p-2 mt-4 "
+          className={
+            isDarkMode
+              ? "border-2 bg-pink-dark rounded border-pink-dark tracking-widest hover:bg-pink-hover hover:border-pink-hover mx-auto relative w-1/4 text-white  font-black bottom-0 p-2 mt-4 "
+              : "border-2 rounded border-red-700 tracking-widest hover:bg-red-600  mx-auto relative w-1/4 text-white bg-red-500 font-black bottom-0 p-2 mt-4 "
+          }
           onClick={getMore}
         >
           Cargar más
@@ -112,10 +128,4 @@ const ApiContainer = ({ dispatch }) => {
     </div>
   );
 };
-const mapState = (state) => {
-  return {
-    //se busca del state, en el rootReducer la propiedad apiReducer que contiene todo lo de apiReducer y se rescata del initialState "apis" que contiene todas las apis
-    apis: state.apiReducer.apis,
-  };
-};
-export default connect(mapState)(ApiContainer);
+export default ApiContainer;

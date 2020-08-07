@@ -5,8 +5,20 @@ import AddApi from "./components/ApisContainer/AddApi";
 import Landing from "./components/Landing";
 import Projects from "./components/ProjectsContainer/Projects";
 import { Switch, Route } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 function App() {
+  const isDarkMode = useSelector((state) => state.themeReducer.isDarkMode);
+  console.log(isDarkMode);
+  if (isDarkMode) {
+    document.body.classList.remove("bg-white");
+    document.body.classList.add("bg-dark-200");
+    document.body.classList.add("text-white");
+  } else {
+    document.body.classList.remove("bg-dark-200");
+    document.body.classList.remove("text-white");
+    document.body.classList.add("bg-white");
+  }
   return (
     <>
       <Navbar />
