@@ -23,9 +23,11 @@ Se implementará un BAAS, en este caso 🔥Firebase para almacenar la informaci�
 - [x] Modificación para alivianar la carga a Redux
 - [x] Agregar Dark mode Toggle + funcionamiento
 - [x] Almacenar el dark mode en el local storage para guardar la selección
-- [ ] Crear Landing page
-- [ ] Crear un JSON con APIs publicas
-- [ ] Crear vista para entregar una API de manera random
-- [ ] Crear una vista que entrega una API de manera random pero con algunos filtros
+- [x] Crear Landing page
+- [x] Arreglar Bug Navbar en móvil y mid sizes
+- [ ] Mejorar Landing page
 - [ ] Implementar autenticacion de Firebase
+- [ ] Agregar el Auth con Email/Pass y Google
+- [ ] Agregar formulario
+- [ ] Crear vista para entregar una API de manera random
 - [ ] Hacer una vista donde la gente pueda agregar una URL a un repo basado en alguna de estas API para que les sirva como inspiración al resto
