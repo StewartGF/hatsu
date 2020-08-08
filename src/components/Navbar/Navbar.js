@@ -30,20 +30,29 @@ const Navbar = () => {
             </span>
           </Link>
         </div>
-        <div className="block md:hidden">
-          <button
-            className="flex items-center px-3 py-2 border rounded text-teal-200 border-red-400 hover:text-gray-500 hover:border-white"
-            onClick={() => setIsOpen(!isOpen)}
-          >
-            <svg
-              className="fill-none h-3 w-3"
-              viewBox="0 0 20 20"
-              xmlns="http://www.w3.org/2000/svg"
+        <div className="order-none flex  md:order-last ">
+          <ThemeToggle />
+          <div className="block md:hidden ml-4 xl:ml-0">
+            <button
+              className={`flex items-center px-3 py-2 border rounded focus:outline-none ${
+                isDarkMode ? "border-white" : "border-red-400"
+              } hover:text-gray-500 hover:border-white`}
+              onClick={() => setIsOpen(!isOpen)}
             >
-              <title>Menu</title>
-              <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
-            </svg>
-          </button>
+              <svg
+                className={
+                  isDarkMode
+                    ? "fill-current text-white h-3 w-3 "
+                    : "fill-current text-black h-3 w-3"
+                }
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <title>Menu</title>
+                <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
+              </svg>
+            </button>
+          </div>
         </div>
         {isOpen ? (
           <div className="block w-full flex-grow md:flex md:items-center md:w-auto">
@@ -108,7 +117,6 @@ const Navbar = () => {
             </div>
           </div>
         )}
-        <ThemeToggle />
       </nav>
     </div>
   );
