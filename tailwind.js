@@ -19,8 +19,10 @@ module.exports = {
       white: "#fff",
 
       dark: {
-        100: "#3C3A57",
-        200: "#2E2D42",
+        100: "#201E34",
+        200: "#120D1F",
+        // 100: "#373C49",
+        // 200: "#282C35",
       },
 
       gray: {
@@ -132,8 +134,14 @@ module.exports = {
         700: "#b83280",
         800: "#97266d",
         900: "#702459",
-        dark: "#C094A9",
-        hover: "#CF7C87",
+        // dark: "#f56565",
+        // hover: "#fc8181",
+        // dark: "#e58ed8",
+        // hover: "#db76cc",
+        dark: "#E074D0",
+        hover: "#EFB0E4",
+        // dark: "#C094A9",
+        // hover: "#CF7C87",
       },
     },
     spacing: {

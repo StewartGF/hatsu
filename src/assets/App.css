@@ -105,6 +105,7 @@ body {
 
 /** Used to define the position of the ToastContainer **/
 .Toastify__toast-container--top-left {
+  margin-top: 3rem;
 }
 .Toastify__toast-container--top-center {
 }
@@ -125,10 +126,8 @@ body {
 .Toastify__toast--dark {
 }
 .Toastify__toast--default {
-  border: 2px solid red;
   color: #000 !important;
   border-radius: 6px !important;
-  font-size: 0.9rem;
 }
 .Toastify__toast--info {
 }
@@ -138,7 +137,6 @@ body {
 }
 .Toastify__toast--error {
   border-radius: 6px !important;
-  font-size: 0.9rem !important;
 }
 .Toastify__toast-body {
 }
