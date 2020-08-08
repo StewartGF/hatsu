@@ -25,9 +25,10 @@ Se implementará un BAAS, en este caso 🔥Firebase para almacenar la informaci�
 - [x] Almacenar el dark mode en el local storage para guardar la selección
 - [x] Crear Landing page
 - [x] Arreglar Bug Navbar en móvil y mid sizes
-- [ ] Mejorar Landing page
+- [x] Mejorar Landing page
 - [ ] Implementar autenticacion de Firebase
 - [ ] Agregar el Auth con Email/Pass y Google
 - [ ] Agregar formulario
+- [ ] Agregar Reglas en Firebase para seguridad de la información
 - [ ] Crear vista para entregar una API de manera random
 - [ ] Hacer una vista donde la gente pueda agregar una URL a un repo basado en alguna de estas API para que les sirva como inspiración al resto
