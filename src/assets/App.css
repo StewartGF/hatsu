@@ -105,7 +105,6 @@ body {
 
 /** Used to define the position of the ToastContainer **/
 .Toastify__toast-container--top-left {
-  margin-top: 3rem;
 }
 .Toastify__toast-container--top-center {
 }
@@ -116,6 +115,54 @@ body {
 .Toastify__toast-container--bottom-center {
 }
 .Toastify__toast-container--bottom-right {
+}
+.vert-move {
+  -webkit-animation: mover 1s infinite alternate;
+  animation: mover 1s infinite alternate;
+}
+.vert-move {
+  -webkit-animation: mover 1s infinite alternate;
+  animation: mover 1s infinite alternate;
+}
+@-webkit-keyframes mover {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-10px);
+  }
+}
+@keyframes mover {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-10px);
+  }
+}
+.vert-move-sides {
+  -webkit-animation: mover 0.5s infinite alternate;
+  animation: mover 0.5s infinite alternate;
+}
+.vert-move-sides {
+  -webkit-animation: sides 0.5s infinite alternate;
+  animation: sides 0.5s infinite alternate;
+}
+@-webkit-keyframes sides {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-5px);
+  }
+}
+@keyframes sides {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-5px);
+  }
 }
 
 /** Classes for the displayed toast **/
