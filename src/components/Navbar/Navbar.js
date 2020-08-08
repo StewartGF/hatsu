@@ -30,7 +30,7 @@ const Navbar = () => {
             </span>
           </Link>
         </div>
-        <div className="order-none flex  xl:order-last ">
+        <div className="order-none flex  md:order-last ">
           <ThemeToggle />
           <div className="block md:hidden ml-4 xl:ml-0">
             <button
