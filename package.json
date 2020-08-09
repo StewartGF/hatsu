@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@emotion/core": "^10.0.28",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
@@ -14,6 +15,7 @@
     "react-redux-firebase": "^3.7.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1",
+    "react-snap": "^1.23.0",
     "react-toastify": "^6.0.8",
     "redux": "^4.0.5",
     "redux-firestore": "^0.13.0",
@@ -25,7 +27,8 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "build:css": "postcss src/assets/tailwind.css -o src/assets/main.css",
-    "watch:css": "postcss src/assets/tailwind.css -o src/assets/main.css"
+    "watch:css": "postcss src/assets/tailwind.css -o src/assets/main.css",
+    "postbuild": "react-snap"
   },
   "eslintConfig": {
     "extends": "react-app"

@@ -15,13 +15,24 @@ const store = createStore(
   rootReducer,
   applyMiddleware(thunk) // middleware para hacer llamadas asíncronas
 );
-
-ReactDOM.render(
-  <Provider store={store}>
-    <Router>
-      <App />
-      <ToastContainer />
-    </Router>
-  </Provider>,
-  document.getElementById("root")
-);
+if (document.getElementById("root").hasChildNodes()) {
+  ReactDOM.hydrate(
+    <Provider store={store}>
+      <Router>
+        <App />
+        <ToastContainer />
+      </Router>
+    </Provider>,
+    document.getElementById("root")
+  );
+} else {
+  ReactDOM.render(
+    <Provider store={store}>
+      <Router>
+        <App />
+        <ToastContainer />
+      </Router>
+    </Provider>,
+    document.getElementById("root")
+  );
+}
