@@ -15,7 +15,7 @@
     "react-redux-firebase": "^3.7.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1",
-    "react-snap": "^1.23.0",
+    "react-snap": "^1.10.0",
     "react-toastify": "^6.0.8",
     "redux": "^4.0.5",
     "redux-firestore": "^0.13.0",
