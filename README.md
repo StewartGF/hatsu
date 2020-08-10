@@ -2,6 +2,11 @@
 
 Listado de APIs públicas, además, te da la posibilidad de obtener alguna de manera random para poder comenzar tu próximo proyecto :)
 
+## 🌐 DEPLOY
+
+Por el momento, al estar en desarrollo no está en su estado final, pero...
+http://hatsu-dev.netlify.com/ ese es el link en su estado actual 🐛🐛🐛
+
 ## Descripción
 
 El fin de este proyecto es retomar React & Redux, para esto, crear un proyecto en el que pueda ver las Api's públicas, además, dar la posibilidad de crear una especie de blog en donde se puedan ver diferentes proyectos creados en base a estas Api's.
