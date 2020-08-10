@@ -23,10 +23,10 @@ function Landing() {
         isDarkMode ? "border-pink-dark text-2xl" : "border-red-500"
       }`,
       position: "top-left",
-      autoClose: 5500,
+      autoClose: 4000,
       hideProgressBar: false,
       closeOnClick: true,
-      pauseOnHover: true,
+      pauseOnHover: false,
       draggable: true,
       progress: undefined,
     });
@@ -59,7 +59,7 @@ function Landing() {
               </svg>
             </div>
           </div>
-          <div class="self-center h-auto text-div w-full text-center lg:text-left px-0 lg:px-8">
+          <div class="self-center h-full my-auto mt-24 text-div w-full text-center lg:text-left px-0 lg:px-8">
             <span
               class={`block text-4xl font-bold tracking-tight ${
                 isDarkMode ? " text-pink-hover" : "text-red-600"
@@ -85,14 +85,14 @@ function Landing() {
               conocimientos y demuestra que puedes manejar la información que se
               te presente y en el formato que se te presente.
             </span>
+            <div className="w-full mx-auto flex mt-8 justify-center">
+              <i
+                className={`fas fa-chevron-down ${
+                  isDarkMode ? "text-pink-dark" : "text-red-500"
+                } fa-3x md:fa-2x mt-2  vert-move`}
+              ></i>
+            </div>
           </div>
-        </div>
-        <div className="w-full">
-          <i
-            className={`fas fa-chevron-down ${
-              isDarkMode ? "text-pink-dark" : "text-red-500"
-            } fa-3x md:fa-2x mt-2 mb-20 md:mb-14  vert-move`}
-          ></i>
         </div>
       </div>
       <div className="container mx-auto text-center relative  h-full align-middle px-8 pb-8 pt-2">

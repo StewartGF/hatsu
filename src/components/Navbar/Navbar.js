@@ -11,8 +11,8 @@ const Navbar = () => {
       <nav
         className={
           isDarkMode
-            ? "flex items-center justify-between flex-wrap bg-dark-200 p-6 shadow-md text-white"
-            : "flex items-center justify-between flex-wrap p-6 shadow-md bg-white text-black"
+            ? "flex items-center justify-between flex-wrap bg-dark-200 p-4 shadow-md text-white"
+            : "flex items-center justify-between flex-wrap p-4 shadow-md bg-white text-black"
         }
       >
         <div className="flex items-center flex-shrink-0 mr-6 ">
