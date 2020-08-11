@@ -7,10 +7,8 @@ export const createApi = (api) => {
     try {
       const newApi = {
         ...api,
-        authorName: "Stewart",
-        authorLastName: "Granger Flores",
-        authorId: 123123,
         createdAt: new Date(),
+        wasApproved: true,
       };
       await db.collection("api-collection").add(newApi);
       dispatch({ type: "ADD_API", payload: newApi });
