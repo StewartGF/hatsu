@@ -9,7 +9,6 @@ import { useSelector } from "react-redux";
 
 function App() {
   const isDarkMode = useSelector((state) => state.themeReducer.isDarkMode);
-  console.log(isDarkMode);
   if (isDarkMode) {
     document.body.classList.remove("bg-white");
     document.body.classList.add("bg-dark-200");

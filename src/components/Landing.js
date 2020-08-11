@@ -15,7 +15,6 @@ function Landing() {
   );
   const isDarkMode = useSelector((state) => state.themeReducer.isDarkMode);
   useEffect(() => {
-    console.log(firstLanding);
     if (!firstLanding) return;
 
     toast("👋🏻 Bienvenido !", {
@@ -36,11 +35,11 @@ function Landing() {
     <>
       <div className="container mx-auto text-center relative  h-full align-middle px-8 pb-8 pt-2">
         <div className="grid gap-2 pt-4 lg:pt-12 h-full grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-2 font-bold tracking-tight">
-          <div class="image-div relative w-full">
+          <div className="image-div relative w-full">
             <div className=" absolute">
               <img
                 loading="lazy"
-                class="w-full h-48 z-20 text-left lg:h-full"
+                className="w-full h-48 z-20 text-left lg:h-full"
                 src={isDarkMode ? PickDark : Pick}
                 alt="pick an api"
               />
@@ -59,16 +58,16 @@ function Landing() {
               </svg>
             </div>
           </div>
-          <div class="self-center h-full my-auto mt-24 text-div w-full text-center lg:text-left px-0 lg:px-8">
+          <div className="self-center h-full my-auto mt-24 text-div w-full text-center lg:text-left px-0 lg:px-8">
             <span
-              class={`block text-4xl font-bold tracking-tight ${
+              className={`block text-4xl font-bold tracking-tight ${
                 isDarkMode ? " text-pink-hover" : "text-red-600"
               }`}
             >
               PÚBLICAS. CON O SIN TOKEN.
             </span>
             <span
-              class={`tracking-tighter ${
+              className={`tracking-tighter ${
                 isDarkMode ? "text-gray-400" : "text-gray-600"
               }`}
             >
@@ -77,7 +76,7 @@ function Landing() {
               token, con una gran variedad de categorías y escalas.
             </span>
             <span
-              class={`inline-block tracking-tighter ${
+              className={`inline-block tracking-tighter ${
                 isDarkMode ? "text-gray-400" : "text-gray-600"
               }`}
             >
@@ -97,11 +96,11 @@ function Landing() {
       </div>
       <div className="container mx-auto text-center relative  h-full align-middle px-8 pb-8 pt-2">
         <div className="grid gap-2 pt-4 lg:pt-12 h-full grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-2 font-bold tracking-tight">
-          <div class="image-div relative w-full order-none md:order-last">
+          <div className="image-div relative w-full order-none md:order-last">
             <div className=" absolute">
               <img
                 loading="lazy"
-                class="w-full h-48 z-20 text-left lg:h-full"
+                className="w-full h-48 z-20 text-left lg:h-full"
                 src={isDarkMode ? ShareDark : Share}
                 alt="Share your project"
               />
@@ -120,16 +119,16 @@ function Landing() {
               </svg>
             </div>
           </div>
-          <div class="self-center h-auto text-div w-full text-center lg:text-left px-4 lg:px-8">
+          <div className="self-center h-auto text-div w-full text-center lg:text-left px-4 lg:px-8">
             <span
-              class={`block text-4xl font-bold tracking-tight ${
+              className={`block text-4xl font-bold tracking-tight ${
                 isDarkMode ? " text-pink-hover" : "text-red-600"
               }`}
             >
               COMPARTE TUS PROYECTOS.
             </span>
             <span
-              class={`tracking-tighter ${
+              className={`tracking-tighter ${
                 isDarkMode ? "text-gray-400" : "text-gray-600"
               }`}
             >
@@ -138,7 +137,7 @@ function Landing() {
               hacer con estos servicios.
             </span>
             <span
-              class={`inline-block tracking-tighter ${
+              className={`inline-block tracking-tighter ${
                 isDarkMode ? "text-gray-400" : "text-gray-600"
               }`}
             >
@@ -146,7 +145,7 @@ function Landing() {
               aumentar su abanico de repositorios.
             </span>
             <span
-              class={`inline-block tracking-tighter mt-4 ${
+              className={`inline-block tracking-tighter mt-4 ${
                 isDarkMode ? "text-gray-400" : "text-gray-600"
               }`}
             >
@@ -155,7 +154,7 @@ function Landing() {
             </span>
             <button
               className={`${
-                isDarkMode ? "bg-pink-hover" : "bg-red-500"
+                isDarkMode ? "bg-pink-dark" : "bg-red-500"
               } text-white font-black py-4 px-6 rounded mt-12 vert-move-sides`}
             >
               COMPARTIR
@@ -165,11 +164,11 @@ function Landing() {
       </div>
       <div className="container mx-auto text-center relative  h-full align-middle px-8 pb-8 py-24 mb-0 md:mb-48">
         <div className="grid gap-2 pt-4 lg:pt-12 h-full grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-2 font-bold tracking-tight">
-          <div class="image-div relative w-full">
+          <div className="image-div relative w-full">
             <div className=" absolute">
               <img
                 loading="lazy"
-                class="w-full h-48 z-20 text-left lg:h-full"
+                className="w-full h-48 z-20 text-left lg:h-full"
                 src={isDarkMode ? ImproveDark : Improve}
                 alt="Improve your portofolio"
               />
@@ -188,16 +187,16 @@ function Landing() {
               </svg>
             </div>
           </div>
-          <div class="self-center h-auto text-div w-full text-center lg:text-left px-4 lg:px-8">
+          <div className="self-center h-auto text-div w-full text-center lg:text-left px-4 lg:px-8">
             <span
-              class={`block text-4xl font-bold tracking-tight ${
+              className={`block text-4xl font-bold tracking-tight ${
                 isDarkMode ? " text-pink-hover" : "text-red-600"
               }`}
             >
               MEJORA TU PORTAFOLIO.
             </span>
             <span
-              class={`tracking-tighter ${
+              className={`tracking-tighter ${
                 isDarkMode ? "text-gray-400" : "text-gray-600"
               }`}
             >
@@ -207,7 +206,7 @@ function Landing() {
               entregamos, son gratis, mejorar está al alcance de tus manos.
             </span>
             <span
-              class={`inline-block tracking-tighter mt-6 ${
+              className={`inline-block tracking-tighter mt-6 ${
                 isDarkMode ? "text-gray-400" : "text-gray-600"
               }`}
             >
@@ -217,7 +216,7 @@ function Landing() {
             </span>
             <button
               className={`${
-                isDarkMode ? "bg-pink-hover" : "bg-red-500"
+                isDarkMode ? "bg-pink-dark" : "bg-red-500"
               } text-white font-black py-4 px-6 rounded mt-12 vert-move-sides`}
             >
               OK, DEMOSLE
