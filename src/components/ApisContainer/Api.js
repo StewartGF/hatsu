@@ -40,7 +40,7 @@ const Apis = (props) => {
                       className={
                         isDarkMode
                           ? "bg-dark-200 text-white inline-block  border-pink-dark rounded-full m-1 px-2 py-1 text-xs xl:text-sm  font-semibold   border-2 "
-                          : "inline-block bg-red-100 rounded-full m-1 px-2 py-1 text-xs xl:text-sm  font-semibold text-gray-700  border-2 "
+                          : "inline-block bg-red-100 rounded-full m-1 px-2 py-1 text-xs xl:text-sm border-red-500 font-semibold text-gray-700  border-2 "
                       }
                       key={tag}
                     >

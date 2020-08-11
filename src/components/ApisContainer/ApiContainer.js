@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { db } from "../../configs/fbConfig";
 import Api from "./Api";
+// import { createApi } from "../../store/actions/apiActions";
+// import { batchJson } from "../../batch";
 
 const ApiContainer = () => {
   const dispatch = useDispatch();
@@ -18,6 +20,7 @@ const ApiContainer = () => {
         const response = await db
           .collection("api-collection")
           .orderBy("createdAt")
+          .where("wasApproved", "==", true)
           .limit(limit)
           .get();
         const dataSend = [];
@@ -64,6 +67,9 @@ const ApiContainer = () => {
   };
   const onFormSubmit = (e) => {
     e.preventDefault();
+    // batchJson.forEach((x) => {
+    //   dispatch(createApi(x));
+    // });
     console.log(busqueda);
   };
   return (
@@ -95,7 +101,7 @@ const ApiContainer = () => {
           </button>
         </div>
       </form>
-      {apis.length === 0 ? (
+      {isLoading ? (
         <div className="container mx-auto text-center relative text-black align-middle pt-2">
           <div id="title" className="text-3xl text-gray-600 m-auto pt-32">
             <p>
@@ -107,23 +113,40 @@ const ApiContainer = () => {
           </div>
         </div>
       ) : (
-        <div className="container mx-auto px-2 w-full h-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  gap-8 mt-12">
-          {apis.map((api) => {
-            return <Api data={api} key={api.uid} />;
-          })}
-        </div>
-      )}
-      {!isLoading && (
-        <button
-          className={
-            isDarkMode
-              ? "border-2 bg-pink-dark rounded border-pink-dark tracking-widest hover:bg-pink-hover hover:border-pink-hover mx-auto relative w-1/4 text-white  font-black bottom-0 p-2 mt-4 "
-              : "border-2 rounded border-red-700 tracking-widest hover:bg-red-600  mx-auto relative w-1/4 text-white bg-red-500 font-black bottom-0 p-2 mt-4 "
-          }
-          onClick={getMore}
-        >
-          Cargar más
-        </button>
+        <>
+          {apis.length === 0 ? (
+            <>
+              <div className="container mx-auto text-center relative text-black align-middle pt-2">
+                <div id="title" className="text-3xl text-gray-600 m-auto pt-32">
+                  <p>
+                    No hay APIs que mostrar....
+                    <span role="img" aria-label="img">
+                      🤷🏻‍♂️
+                    </span>
+                  </p>
+                </div>
+              </div>
+            </>
+          ) : (
+            <>
+              <div className="container mx-auto px-2 w-full h-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  gap-8 mt-12">
+                {apis.map((api) => {
+                  return <Api data={api} key={api.uid} />;
+                })}
+              </div>
+              <button
+                className={
+                  isDarkMode
+                    ? "border-2 bg-pink-dark rounded border-pink-dark tracking-widest hover:bg-pink-hover hover:border-pink-hover mx-auto relative w-1/4 text-white  font-black bottom-0 p-2 mt-4 "
+                    : "border-2 rounded border-red-700 tracking-widest hover:bg-red-600  mx-auto relative w-1/4 text-white bg-red-500 font-black bottom-0 p-2 mt-4 "
+                }
+                onClick={getMore}
+              >
+                Cargar más
+              </button>
+            </>
+          )}
+        </>
       )}
     </div>
   );
