@@ -1,6 +1,8 @@
+![npm](https://img.shields.io/badge/React-v16.13-02DCFF) ![npm](https://img.shields.io/badge/Redux-v4.0.5-3F3D56) ![npm](https://img.shields.io/badge/Firebase-v7.17-yellow) ![npm](https://img.shields.io/badge/TailwindCSS-v1.6-39C9C3) [![Netlify Status](https://api.netlify.com/api/v1/badges/2f53da70-4c64-4db4-8d8d-95b4e02da71e/deploy-status)](https://app.netlify.com/sites/hatsu-dev/deploys)
+
 # 🎴 Hatsū
 
-Listado de APIs públicas, además, te da la posibilidad de obtener alguna de manera random para poder comenzar tu próximo proyecto :)
+Listado de APIs públicas, junto con la posibilidad de agregar proyectos que hayas desarrollado con alguna de estas APIs y mostrar las tecnologías que has usado :)
 
 ## 🌐 DEPLOY
 
@@ -11,7 +13,7 @@ http://hatsu-dev.netlify.com/ ese es el link en su estado actual 🐛🐛🐛
 
 El fin de este proyecto es retomar React & Redux, para esto, crear un proyecto en el que pueda ver las Api's públicas, además, dar la posibilidad de crear una especie de blog en donde se puedan ver diferentes proyectos creados en base a estas Api's.
 
-Se implementará un BAAS, en este caso 🔥Firebase para almacenar la información y poder hacer la información persistente.
+Se implementará un BaaS, en este caso Firebase🔥 para almacenar la información y poder hacer la información persistente.
 
 ## 📜TODO LIST
 
