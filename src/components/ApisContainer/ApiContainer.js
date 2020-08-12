@@ -101,7 +101,7 @@ const ApiContainer = () => {
           </button>
         </div>
       </form>
-      {isLoading ? (
+      {isLoading && apis.length === 0 ? (
         <div className="container mx-auto text-center relative text-black align-middle pt-2">
           <div id="title" className="text-3xl text-gray-600 m-auto pt-32">
             <p>
