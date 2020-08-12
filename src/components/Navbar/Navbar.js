@@ -16,7 +16,7 @@ const Navbar = () => {
         }
       >
         <div className="flex items-center flex-shrink-0 mr-6 ">
-          <Link to="/">
+          <Link onClick={() => setIsOpen(!isOpen)} to="/">
             <span
               className={
                 isDarkMode
@@ -59,24 +59,28 @@ const Navbar = () => {
             <div className="w-full block flex-grow md:flex md:items-center md:w-auto">
               <div className="text-sm md:flex-grow">
                 <Link
+                  onClick={() => setIsOpen(!isOpen)}
                   to="/"
                   className="font-black block mt-4 md:inline-block md:mt-0 hover:text-gray-500  mr-4"
                 >
                   Inicio
                 </Link>
                 <Link
+                  onClick={() => setIsOpen(!isOpen)}
                   to="/api"
                   className="font-black block mt-4 md:inline-block md:mt-0 hover:text-gray-500  mr-4"
                 >
                   APIs Públicas
                 </Link>
                 <Link
+                  onClick={() => setIsOpen(!isOpen)}
                   to="/projects"
                   className="font-black block mt-4 md:inline-block md:mt-0 hover:text-gray-500  mr-4"
                 >
                   Proyectos
                 </Link>
                 <Link
+                  onClick={() => setIsOpen(!isOpen)}
                   to="/add-api"
                   className="font-black block mt-4 md:inline-block md:mt-0 hover:text-gray-500  mr-4"
                 >
@@ -90,24 +94,28 @@ const Navbar = () => {
             <div className="w-full block flex-grow md:flex md:items-center md:w-auto">
               <div className="text-sm md:flex-grow">
                 <Link
+                  onClick={() => setIsOpen(!isOpen)}
                   to="/"
                   className="block mt-4 md:inline-block md:mt-0 hover:text-gray-500 font-black mr-4"
                 >
                   Inicio
                 </Link>
                 <Link
+                  onClick={() => setIsOpen(!isOpen)}
                   to="/api"
                   className="block mt-4 md:inline-block md:mt-0 hover:text-gray-500 font-black mr-4"
                 >
                   APIs Públicas
                 </Link>
                 <Link
+                  onClick={() => setIsOpen(!isOpen)}
                   to="/projects"
                   className="block mt-4 md:inline-block md:mt-0 hover:text-gray-500 font-black mr-4"
                 >
                   Proyectos
                 </Link>
                 <Link
+                  onClick={() => setIsOpen(!isOpen)}
                   to="/add-api"
                   className="block mt-4 md:inline-block md:mt-0 hover:text-gray-500 font-black mr-4"
                 >
