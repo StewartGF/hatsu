@@ -86,6 +86,13 @@ const Navbar = () => {
                 >
                   Agregar API
                 </Link>
+                {/* <Link
+                  onClick={() => setIsOpen(!isOpen)}
+                  to="/add-project"
+                  className="font-black block mt-4 md:inline-block md:mt-0 hover:text-gray-500  mr-4"
+                >
+                  Agregar Proyectos
+                </Link> */}
               </div>
             </div>
           </div>
@@ -121,6 +128,13 @@ const Navbar = () => {
                 >
                   Agregar API
                 </Link>
+                {/* <Link
+                  onClick={() => setIsOpen(!isOpen)}
+                  to="/add-project"
+                  className="font-black block mt-4 md:inline-block md:mt-0 hover:text-gray-500  mr-4"
+                >
+                  Agregar Proyectos
+                </Link> */}
               </div>
             </div>
           </div>

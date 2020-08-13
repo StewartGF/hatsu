@@ -6,6 +6,7 @@ import Landing from "./components/Landing";
 import Projects from "./components/ProjectsContainer/Projects";
 import { Switch, Route } from "react-router-dom";
 import { useSelector } from "react-redux";
+import AddProject from "./components/ProjectsContainer/AddProject";
 
 function App() {
   const isDarkMode = useSelector((state) => state.themeReducer.isDarkMode);
@@ -33,6 +34,9 @@ function App() {
         </Route>
         <Route path="/add-api">
           <AddApi />
+        </Route>
+        <Route path="/add-project">
+          <AddProject />
         </Route>
       </Switch>
     </>
