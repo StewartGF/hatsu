@@ -16,7 +16,7 @@ const Navbar = () => {
         }
       >
         <div className="flex items-center flex-shrink-0 mr-6 ">
-          <Link onClick={() => setIsOpen(!isOpen)} to="/">
+          <Link to="/">
             <span
               className={
                 isDarkMode

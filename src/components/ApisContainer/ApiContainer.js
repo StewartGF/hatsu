@@ -9,6 +9,8 @@ const ApiContainer = () => {
   const dispatch = useDispatch();
   const apis = useSelector((state) => state.apiReducer.apis);
   const isDarkMode = useSelector((state) => state.themeReducer.isDarkMode);
+  const count = useSelector((state) => state.apiReducer.count);
+  const [last, setLast] = useState("");
   const [busqueda, setBusqueda] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const limit = 9;
@@ -17,17 +19,27 @@ const ApiContainer = () => {
     async function getData() {
       setIsLoading(true);
       try {
-        const response = await db
-          .collection("api-collection")
+        const apiCollectionRef = db.collection("api-collection");
+        const aggregationApiCollectionRef = db
+          .collection("aggregation")
+          .doc("api-collection");
+
+        const response = await apiCollectionRef
           .orderBy("createdAt")
           .where("wasApproved", "==", true)
           .limit(limit)
           .get();
         const dataSend = [];
+        setLast(response.docs[response.docs.length - 1]);
         response.forEach((document) => {
-          dataSend.push({ ...document.data(), uid: document.id });
+          if (document.id !== "counter") {
+            dataSend.push({ ...document.data(), uid: document.id });
+          }
         });
         dispatch({ type: "SET_API_DATA", payload: dataSend });
+        const counter = await aggregationApiCollectionRef.get();
+        const countData = await counter.data().count;
+        dispatch({ type: "SET_COUNT", payload: countData });
         setIsLoading(false);
       } catch (error) {
         console.log("error", error);
@@ -39,16 +51,15 @@ const ApiContainer = () => {
 
   const getMore = async (e) => {
     e.preventDefault();
-    const last = apis[apis.length - 1];
-    console.log(last);
     setIsLoading(true);
     try {
       const response = await db
         .collection("api-collection")
         .limit(limit - 4)
         .orderBy("createdAt")
-        .startAfter(last.createdAt)
+        .startAfter(last)
         .get();
+      setLast(response.docs[response.docs.length - 1]);
       const dataSend = [];
       response.forEach((document) => {
         dataSend.push(document.data());
@@ -134,16 +145,18 @@ const ApiContainer = () => {
                   return <Api data={api} key={api.uid} />;
                 })}
               </div>
-              <button
-                className={
-                  isDarkMode
-                    ? "border-2 bg-pink-dark rounded border-pink-dark tracking-widest hover:bg-pink-hover hover:border-pink-hover mx-auto relative w-1/4 text-white  font-black bottom-0 p-2 mt-4 "
-                    : "border-2 rounded border-red-700 tracking-widest hover:bg-red-600  mx-auto relative w-1/4 text-white bg-red-500 font-black bottom-0 p-2 mt-4 "
-                }
-                onClick={getMore}
-              >
-                Cargar más
-              </button>
+              {count !== apis.length && (
+                <button
+                  className={
+                    isDarkMode
+                      ? "border-2 bg-pink-dark rounded border-pink-dark tracking-widest hover:bg-pink-hover hover:border-pink-hover mx-auto relative w-1/2  md:w-1/4 text-white  font-black bottom-0 p-2 mt-4 "
+                      : "border-2 rounded border-red-700 tracking-widest hover:bg-red-600  mx-auto relative w-1/4 text-white bg-red-500 font-black bottom-0 p-2 mt-4 "
+                  }
+                  onClick={getMore}
+                >
+                  Cargar más
+                </button>
+              )}
             </>
           )}
         </>
