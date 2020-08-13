@@ -18,7 +18,7 @@ function Landing() {
     if (!firstLanding) return;
 
     toast("👋🏻 Bienvenido !", {
-      className: `font-black border-2 mt-0 md:mt-12 lg:mt-20 ${
+      className: `font-black border-2 ${
         isDarkMode ? "border-pink-dark text-2xl" : "border-red-500"
       }`,
       position: "top-left",
