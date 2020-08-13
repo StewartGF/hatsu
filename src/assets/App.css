@@ -102,6 +102,32 @@ body {
 .Toastify__toast-container {
   margin-bottom: 20px !important;
 }
+/* Small (sm) */
+@media (min-width: 640px) {
+  .Toastify__toast-container--top-left {
+  }
+}
+
+/* Medium (md) */
+@media (min-width: 768px) {
+  .Toastify__toast-container--top-left {
+    top: 65px !important;
+  }
+}
+
+/* Large (lg) */
+@media (min-width: 1024px) {
+  .Toastify__toast-container--top-left {
+    top: 65px !important;
+  }
+}
+
+/* Extra Large (xl) */
+@media (min-width: 1280px) {
+  .Toastify__toast-container--top-left {
+    top: 65px !important;
+  }
+}
 
 /** Used to define the position of the ToastContainer **/
 .Toastify__toast-container--top-left {
