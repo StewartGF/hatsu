@@ -2,6 +2,8 @@ import React, { useState, useRef, Fragment } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { toast } from "react-toastify";
 import Loading from "../Loading";
+import { createProject } from "../../store/actions/projectActions";
+
 //CUSTOM HOOKS
 const useFocus = () => {
   const htmlElRef = useRef(null);
@@ -38,9 +40,12 @@ const AddProject = () => {
   const clearInputs = () => {
     setData({
       name: "",
+      webURL: "",
+      repositoryURL: "",
+      usedAPI: "",
+      usedAPIURL: "",
       description: "",
-      url: "",
-      imageUrl: "",
+      imageURL: "",
     });
     setTechnologies([]);
     setTechnologyText("");
@@ -138,7 +143,7 @@ const AddProject = () => {
     let dataSend = data;
     dataSend["technologies"] = technologies;
     clearInputs();
-    // dispatch(createApi(dataSend));
+    dispatch(createProject(dataSend));
   };
   return (
     <div>
