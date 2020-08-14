@@ -2,6 +2,8 @@ import React, { useState, useRef, Fragment } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { toast } from "react-toastify";
 import Loading from "../Loading";
+import { createProject } from "../../store/actions/projectActions";
+
 //CUSTOM HOOKS
 const useFocus = () => {
   const htmlElRef = useRef(null);
@@ -38,9 +40,12 @@ const AddProject = () => {
   const clearInputs = () => {
     setData({
       name: "",
+      webURL: "",
+      repositoryURL: "",
+      usedAPI: "",
+      usedAPIURL: "",
       description: "",
-      url: "",
-      imageUrl: "",
+      imageURL: "",
     });
     setTechnologies([]);
     setTechnologyText("");
@@ -138,7 +143,7 @@ const AddProject = () => {
     let dataSend = data;
     dataSend["technologies"] = technologies;
     clearInputs();
-    // dispatch(createApi(dataSend));
+    dispatch(createProject(dataSend));
   };
   return (
     <div>
@@ -444,7 +449,7 @@ const AddProject = () => {
                 : "flex-shrink-0  font-black bg-red-500 hover:bg-red-700 border-red-500 hover:border-red-700  focus:outline-none text-sm border-4 text-white py-1 px-6 md:px-8 rounded"
             }
           >
-            Agregar API !
+            Agregar proyecto !
           </button>
         </div>
         {loading ? <Loading /> : <></>}
