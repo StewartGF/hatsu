@@ -449,7 +449,7 @@ const AddProject = () => {
                 : "flex-shrink-0  font-black bg-red-500 hover:bg-red-700 border-red-500 hover:border-red-700  focus:outline-none text-sm border-4 text-white py-1 px-6 md:px-8 rounded"
             }
           >
-            Agregar API !
+            Agregar proyecto !
           </button>
         </div>
         {loading ? <Loading /> : <></>}
