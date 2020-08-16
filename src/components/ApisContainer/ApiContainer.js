@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { db } from "../../configs/fbConfig";
 import Api from "./Api";
 // import { createApi } from "../../store/actions/apiActions";
-// import { batchJson } from "../../batch";
+// import { batchAPIJson } from "../../batch";
 
 const ApiContainer = () => {
   const dispatch = useDispatch();
@@ -32,14 +32,12 @@ const ApiContainer = () => {
         const dataSend = [];
         setLast(response.docs[response.docs.length - 1]);
         response.forEach((document) => {
-          if (document.id !== "counter") {
-            dataSend.push({ ...document.data(), uid: document.id });
-          }
+          dataSend.push({ ...document.data(), uid: document.id });
         });
         dispatch({ type: "SET_API_DATA", payload: dataSend });
         const counter = await aggregationApiCollectionRef.get();
         const countData = await counter.data().count;
-        dispatch({ type: "SET_COUNT", payload: countData });
+        dispatch({ type: "SET_API_COUNT", payload: countData });
         setIsLoading(false);
       } catch (error) {
         console.log("error", error);
@@ -126,18 +124,16 @@ const ApiContainer = () => {
       ) : (
         <>
           {apis.length === 0 ? (
-            <>
-              <div className="container mx-auto text-center relative text-black align-middle pt-2">
-                <div id="title" className="text-3xl text-gray-600 m-auto pt-32">
-                  <p>
-                    No hay APIs que mostrar....
-                    <span role="img" aria-label="img">
-                      🤷🏻‍♂️
-                    </span>
-                  </p>
-                </div>
+            <div className="container mx-auto text-center relative text-black align-middle pt-2">
+              <div id="title" className="text-3xl text-gray-600 m-auto pt-32">
+                <p>
+                  No hay APIs que mostrar....
+                  <span role="img" aria-label="img">
+                    🤷🏻‍♂️
+                  </span>
+                </p>
               </div>
-            </>
+            </div>
           ) : (
             <>
               <div className="container mx-auto px-2 w-full h-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  gap-8 mt-12">
