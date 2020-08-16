@@ -3,7 +3,7 @@ import Navbar from "./components/Navbar/Navbar";
 import ApiContainer from "./components/ApisContainer/ApiContainer";
 import AddApi from "./components/ApisContainer/AddApi";
 import Landing from "./components/Landing";
-import Projects from "./components/ProjectsContainer/Projects";
+import ProjectContainer from "./components/ProjectsContainer/ProjectContainer";
 import { Switch, Route } from "react-router-dom";
 import { useSelector } from "react-redux";
 import AddProject from "./components/ProjectsContainer/AddProject";
@@ -30,7 +30,7 @@ function App() {
           <ApiContainer />
         </Route>
         <Route path="/projects">
-          <Projects />
+          <ProjectContainer />
         </Route>
         <Route path="/add-api">
           <AddApi />
