@@ -12,7 +12,7 @@ const apiReducer = (state = initialState, action) => {
     case "SET_API_DATA":
       state.apis = action.payload;
       return state;
-    case "SET_COUNT":
+    case "SET_API_COUNT":
       state.count = action.payload;
       return state;
     case "UPDATE_COUNT_BY_ONE":

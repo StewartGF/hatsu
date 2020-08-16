@@ -1,4 +1,4 @@
-export const batchJson = [
+export const batchAPIJson = [
   {
     name: "Rawg.io",
     description:
@@ -444,5 +444,52 @@ export const batchJson = [
     },
     description:
       "Fetch data from the Spotify music catalog, manage users' playlists and saved music, get recommendations, control Spotify Connect, and more. Based on simple REST principles, the Spotify Web API endpoints return JSON metadata about music artists, albums, and tracks, directly from the Spotify Data Catalogue.",
+  },
+];
+
+export const batchProjectJSON = [
+  {
+    usedAPIURL: "https://kitsu.io/api/edge/anime",
+    webURL: "http://choisir-stewartgf.netlify.app/",
+    usedAPI: "Kitsu.io",
+    imageURL: "https://i.imgur.com/UYmAgqd.png",
+    description:
+      "🤓¿Qué tan bien juzgas un libro por su portada? Proyecto hecho para saber qué tan buenas primeras impresiones tienes sobre una portada o un nombre🤗🤗🤗",
+    repositoryURL: "https://github.com/StewartGF/choisir",
+    technologies: ["Vue", "Javascript"],
+    name: "🎴Choisir",
+  },
+  {
+    repositoryURL: "https://github.com/StewartGF/ROMPage-React",
+    name: "🎮ROMPage-React",
+    webURL: "https://stewartgf.github.io/ROMPage-React/",
+    description:
+      "Precios de items en el juego Ragnarok Online Mobile, actualizados a la fecha y desplegados en un gráfico",
+    imageURL: "https://i.imgur.com/U2ITtA7.png",
+    usedAPI: "ROMExchange",
+    technologies: ["React", "Javascript"],
+    usedAPIURL: "https://www.romexchange.com/",
+  },
+  {
+    repositoryURL: "https://github.com/StewartGF/notreddit",
+    name: "🔥notReddit",
+    webURL: "https://notreddit-stewartgf.netlify.app/",
+    description:
+      "El plan de este proyecto es comenzar a ver Vue.js, con la idea principal siendo poder ver diferentes subreddits y posteos, ordenarlos según categorías e intentar aplicar una especia de swipe to renew, donde cada vez que quieran ver una nueva noticia, tengan que sacarla de la pantalla arrastrando la noticia que ya leyeron.",
+    imageURL: "https://i.imgur.com/6N6xcOj.png",
+    usedAPI: "Reddit API",
+    technologies: ["Vue", "Javascript"],
+    usedAPIURL: "https://www.reddit.com/r/showerthoughts.json",
+  },
+  {
+    repositoryURL: "https://github.com/StewartGF/Clima-App-React",
+    name: "Clima-App-React",
+    webURL: "https://stewartgf.github.io/Clima-App-React/",
+    description:
+      "Proyecto que utiliza la API de OpenWeatherMap para ver temperaturas de distintas ciudades. Los Hooks que utilicé useEffect, para reemplazar al componentDidMount y componentDidUpdate; también usé useState.",
+    imageURL: "https://i.imgur.com/1ec0l54.png",
+    usedAPI: "Open Weather",
+    technologies: ["React", "Javascript"],
+    usedAPIURL: "https://openweathermap.org/",
   },
 ];
