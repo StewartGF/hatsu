@@ -1,5 +1,6 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { FaSun, FaMoon } from "react-icons/fa";
 
 const ThemeToggle = () => {
   const isDarkMode = useSelector((state) => state.themeReducer.isDarkMode);
@@ -17,10 +18,10 @@ const ThemeToggle = () => {
           id="switch"
         >
           <span className="span-toggle focus:outline-none">
-            <i className="fas fa-sun focus:outline-none"></i>
+            <FaSun size={22} className="m-auto h-full" />
           </span>
           <span className="span-toggle focus:outline-none">
-            <i className="fas fa-moon focus:outline-none"></i>
+            <FaMoon size={22} className="m-auto h-full" />
           </span>
         </button>
       </div>
