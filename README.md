@@ -33,6 +33,8 @@ Se implementará un BaaS, en este caso Firebase🔥 para almacenar la informaci�
 - [x] Crear Landing page
 - [x] Arreglar Bug Navbar en móvil y mid sizes
 - [x] Mejorar Landing page
+- [x] Corregir errores con el import de Favicons del toggle y landing page
+- [x] Corregir problemas con estado de la vista de Apis
 - [ ] Implementar autenticacion de Firebase
 - [ ] Agregar el Auth con Email/Pass y Google
 - [ ] Agregar formulario

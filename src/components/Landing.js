@@ -7,6 +7,8 @@ import ShareDark from "../../src/assets/images/share_project_dark.svg"; // relat
 import ImproveDark from "../../src/assets/images/improve_portfolio_dark.svg"; // relative path to image
 import { useSelector, useDispatch } from "react-redux";
 import { toast } from "react-toastify";
+import { Link } from "react-router-dom";
+import { BsChevronDoubleDown } from "react-icons/bs";
 
 function Landing() {
   const dispatch = useDispatch();
@@ -84,12 +86,13 @@ function Landing() {
               conocimientos y demuestra que puedes manejar la información que se
               te presente y en el formato que se te presente.
             </span>
-            <div className="w-full mx-auto flex mt-8 justify-center">
-              <i
-                className={`fas fa-chevron-down ${
+            <div className="w-full mx-auto flex mt-6 justify-center">
+              <BsChevronDoubleDown
+                size={50}
+                className={` ${
                   isDarkMode ? "text-pink-dark" : "text-red-500"
                 } fa-3x md:fa-2x mt-2  vert-move`}
-              ></i>
+              ></BsChevronDoubleDown>
             </div>
           </div>
         </div>
@@ -152,13 +155,15 @@ function Landing() {
               Puedes hacerlo las veces que quieras. Con la cantidad de proyectos
               que quieras.
             </span>
-            <button
-              className={`${
-                isDarkMode ? "bg-pink-dark" : "bg-red-500"
-              } text-white font-black py-4 px-6 rounded mt-12 vert-move-sides`}
-            >
-              COMPARTIR
-            </button>
+            <Link to="/add-project">
+              <button
+                className={`${
+                  isDarkMode ? "bg-pink-dark" : "bg-red-500"
+                } text-white font-black py-4 px-6 rounded mt-12 vert-move-sides`}
+              >
+                COMPARTIR
+              </button>
+            </Link>
           </div>
         </div>
       </div>
@@ -214,13 +219,15 @@ function Landing() {
               trabajo de manera sencilla y con la capacidad de ayudar al resto,
               nada mal ¿ no ?
             </span>
-            <button
-              className={`${
-                isDarkMode ? "bg-pink-dark" : "bg-red-500"
-              } text-white font-black py-4 px-6 rounded mt-12 vert-move-sides`}
-            >
-              OK, DEMOSLE
-            </button>
+            <Link to="/api">
+              <button
+                className={`${
+                  isDarkMode ? "bg-pink-dark" : "bg-red-500"
+                } text-white font-black py-4 px-6 rounded mt-12 vert-move-sides`}
+              >
+                OK, DEMOSLE
+              </button>
+            </Link>
           </div>
         </div>
       </div>

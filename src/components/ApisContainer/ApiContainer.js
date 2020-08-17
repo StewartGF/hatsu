@@ -10,7 +10,7 @@ const ApiContainer = () => {
   const apis = useSelector((state) => state.apiReducer.apis);
   const isDarkMode = useSelector((state) => state.themeReducer.isDarkMode);
   const count = useSelector((state) => state.apiReducer.count);
-  const [last, setLast] = useState("");
+  const last = useSelector((state) => state.apiReducer.last);
   const [busqueda, setBusqueda] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const limit = 9;
@@ -30,7 +30,10 @@ const ApiContainer = () => {
           .limit(limit)
           .get();
         const dataSend = [];
-        setLast(response.docs[response.docs.length - 1]);
+        dispatch({
+          type: "SET_LAST_DOCUMENT",
+          payload: response.docs[response.docs.length - 1],
+        });
         response.forEach((document) => {
           dataSend.push({ ...document.data(), uid: document.id });
         });
@@ -57,7 +60,10 @@ const ApiContainer = () => {
         .orderBy("createdAt")
         .startAfter(last)
         .get();
-      setLast(response.docs[response.docs.length - 1]);
+      dispatch({
+        type: "SET_LAST_DOCUMENT",
+        payload: response.docs[response.docs.length - 1],
+      });
       const dataSend = [];
       response.forEach((document) => {
         dataSend.push(document.data());
