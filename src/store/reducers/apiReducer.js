@@ -1,5 +1,6 @@
 const initialState = {
   apis: [],
+  last: null,
   loading: false,
   count: 0,
 };
@@ -14,6 +15,9 @@ const apiReducer = (state = initialState, action) => {
       return state;
     case "SET_API_COUNT":
       state.count = action.payload;
+      return state;
+    case "SET_LAST_DOCUMENT":
+      state.last = action.payload;
       return state;
     case "UPDATE_COUNT_BY_ONE":
       state.count = state.count + 1;
