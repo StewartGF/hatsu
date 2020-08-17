@@ -7,7 +7,6 @@ import Project from "./Project";
 
 const ProjectContainer = () => {
   const projects = useSelector((state) => state.projectReducer.projects);
-  console.log(JSON.stringify(projects));
   const count = useSelector((state) => state.projectReducer.count);
   const isDarkMode = useSelector((state) => state.themeReducer.isDarkMode);
   const [isLoading, setIsLoading] = useState(false);
@@ -94,8 +93,6 @@ const ProjectContainer = () => {
                   return <Project data={project} key={project.uid} />;
                 })}
               </div>
-              {console.log("count", count)}
-              {console.log("projects.length", projects.length)}
               {count !== projects.length && (
                 <button
                   className={`px-4 py-2 text-white font-black ${
