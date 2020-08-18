@@ -6,8 +6,7 @@ Listado de APIs públicas, junto con la posibilidad de agregar proyectos que hay
 
 ## 🌐 DEPLOY
 
-Por el momento, al estar en desarrollo no está en su estado final, pero...
-http://hatsu-dev.netlify.com/ ese es el link en su estado actual 🐛🐛🐛
+### http://hatsu-dev.netlify.com/ `dev-mode-deploy`
 
 ## Descripción
 
