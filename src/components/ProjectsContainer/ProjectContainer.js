@@ -90,7 +90,9 @@ const ProjectContainer = () => {
             <>
               <div className="grid gap-4 m-6 grid-cols-1">
                 {projects.map((project, index) => {
-                  return <Project data={project} key={project.uid} />;
+                  return (
+                    <Project data={project} index={index} key={project.uid} />
+                  );
                 })}
               </div>
               {count !== projects.length && (

@@ -34,6 +34,7 @@ Se implementará un BaaS, en este caso Firebase🔥 para almacenar la informaci�
 - [x] Mejorar Landing page
 - [x] Corregir errores con el import de Favicons del toggle y landing page
 - [x] Corregir problemas con estado de la vista de Apis
+- [ ] Modificar la vista de proyectos
 - [ ] Implementar autenticacion de Firebase
 - [ ] Agregar el Auth con Email/Pass y Google
 - [ ] Agregar formulario
