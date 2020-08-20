@@ -1,16 +1,18 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import { BsBoxArrowUpRight } from "react-icons/bs";
 
 const Project = (props) => {
-  const { data, index } = props;
-  console.log({ index });
+  const { data } = props;
   const isDarkMode = useSelector((state) => state.themeReducer.isDarkMode);
   return (
-    <a href={data.repositoryURL} target="_blank" rel="noopener noreferrer">
+    <div className="relative">
+      <a href={data.repositoryURL} target="_blank" rel="noopener noreferrer">
+        <BsBoxArrowUpRight size={20} className="absolute top-0 right-0 m-3" />
+      </a>
+
       <div
-        className={`  ${
-          index % 2 === 0 ? "lg:ml-12" : "lg:mr-12"
-        } flex flex-wrap  ${
+        className={`  flex flex-wrap  ${
           isDarkMode ? "bg-dark-100 " : " border-opacity-25 border-gray"
         } shadow-xl rounded p-2`}
       >
@@ -93,7 +95,7 @@ const Project = (props) => {
           </div>
         </div>
       </div>
-    </a>
+    </div>
   );
 };
 
