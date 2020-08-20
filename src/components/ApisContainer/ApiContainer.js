@@ -31,7 +31,7 @@ const ApiContainer = () => {
           .get();
         const dataSend = [];
         dispatch({
-          type: "SET_LAST_DOCUMENT",
+          type: "SET_LAST_API_DOCUMENT",
           payload: response.docs[response.docs.length - 1],
         });
         response.forEach((document) => {
@@ -61,7 +61,7 @@ const ApiContainer = () => {
         .startAfter(last)
         .get();
       dispatch({
-        type: "SET_LAST_DOCUMENT",
+        type: "SET_LAST_API_DOCUMENT",
         payload: response.docs[response.docs.length - 1],
       });
       const dataSend = [];
