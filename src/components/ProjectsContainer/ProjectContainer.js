@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { db } from "../../configs/fbConfig";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector, useDispatch, batch } from "react-redux";
 import Project from "./Project";
 // import { batchProjectJSON } from "../../batch";
 // import { createProject } from "../../store/actions/projectActions";
@@ -24,8 +24,7 @@ const ProjectContainer = () => {
           .doc("project-collection");
         const responseCount = await projectsCountRef.get();
         const count = await responseCount.data().count;
-        //dispatch
-        dispatch({ type: "SET_PROJECTS_COUNT", payload: count });
+
         const response = await projectsCollectionRef
           .orderBy("createdAt")
           .limit(limit)
@@ -34,8 +33,12 @@ const ProjectContainer = () => {
         response.forEach((document) => {
           dataSend.push({ ...document.data(), uid: document.id });
         });
-        //dispatch
-        dispatch({ type: "SET_PROJECTS", payload: dataSend });
+        batch(() => {
+          //dispatch
+          dispatch({ type: "SET_PROJECTS", payload: dataSend });
+          //dispatch
+          dispatch({ type: "SET_PROJECTS_COUNT", payload: count });
+        });
         setIsLoading(false);
       } catch (error) {
         console.error(error);
@@ -89,10 +92,8 @@ const ProjectContainer = () => {
           ) : (
             <>
               <div className="grid gap-4 m-6 grid-cols-1">
-                {projects.map((project, index) => {
-                  return (
-                    <Project data={project} index={index} key={project.uid} />
-                  );
+                {projects.map((project) => {
+                  return <Project data={project} key={project.uid} />;
                 })}
               </div>
               {count !== projects.length && (
