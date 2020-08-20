@@ -1,14 +1,28 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { BsBoxArrowUpRight } from "react-icons/bs";
+import { GoMarkGithub } from "react-icons/go";
+import ReactTooltip from "react-tooltip";
 
 const Project = (props) => {
   const { data } = props;
   const isDarkMode = useSelector((state) => state.themeReducer.isDarkMode);
   return (
     <div className="relative">
+      <ReactTooltip textColor={"white"} border={"true"} borderColor={"white"} />
       <a href={data.repositoryURL} target="_blank" rel="noopener noreferrer">
-        <BsBoxArrowUpRight size={20} className="absolute top-0 right-0 m-3" />
+        <GoMarkGithub
+          size={20}
+          className="absolute top-0 right-0 mt-3 mr-16"
+          data-tip="Ver repositorio"
+        />
+      </a>
+      <a href={data.webURL} target="_blank" rel="noopener noreferrer">
+        <BsBoxArrowUpRight
+          size={20}
+          className="absolute top-0 right-0 mt-3 mr-3"
+          data-tip="Ver página web"
+        />
       </a>
 
       <div
