@@ -17,7 +17,6 @@ const Register = () => {
   const dispatch = useDispatch();
   const isDarkMode = useSelector((state) => state.themeReducer.isDarkMode);
   const userData = useSelector((state) => state.authReducer.user);
-  console.log(userData);
   const [data, setData] = useState({
     name: "",
   });
@@ -47,7 +46,6 @@ const Register = () => {
   };
   const handleSubmit = () => {
     const user = auth.currentUser;
-    console.log(user);
     if (user) {
       user
         .updateProfile({
