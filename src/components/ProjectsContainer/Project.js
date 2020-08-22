@@ -9,17 +9,22 @@ const Project = (props) => {
   const isDarkMode = useSelector((state) => state.themeReducer.isDarkMode);
   return (
     <div className="relative">
-      <ReactTooltip textColor={"white"} border={"true"} borderColor={"white"} />
+      <ReactTooltip
+        textColor={"white"}
+        border={true}
+        borderColor={"white"}
+        effect={"solid"}
+      />
       <a href={data.repositoryURL} target="_blank" rel="noopener noreferrer">
         <GoMarkGithub
-          size={20}
+          size={24}
           className="absolute top-0 right-0 mt-3 mr-16"
           data-tip="Ver repositorio"
         />
       </a>
       <a href={data.webURL} target="_blank" rel="noopener noreferrer">
         <BsBoxArrowUpRight
-          size={20}
+          size={24}
           className="absolute top-0 right-0 mt-3 mr-3"
           data-tip="Ver página web"
         />

@@ -34,11 +34,9 @@ Se implementará un BaaS, en este caso Firebase🔥 para almacenar la informaci�
 - [x] Mejorar Landing page
 - [x] Corregir errores con el import de Favicons del toggle y landing page
 - [x] Corregir problemas con estado de la vista de Apis
-- [ ] Modificar la vista de proyectos
+- [x] Modificar la vista de proyectos
+- [x] Implementar autenticacion de Firebase
+- [ ] Agregar que los formularios de creación solo sean visibles logueados
+- [ ] Crear vista de Admin, para aceptar peticiones de creación de proyectos y apis
 - [ ] Agregar una forma de analitica
-- [ ] Implementar autenticacion de Firebase
-- [ ] Agregar el Auth con Email/Pass y Google
-- [ ] Agregar formulario
 - [ ] Agregar Reglas en Firebase para seguridad de la información
-- [ ] Crear vista para entregar una API de manera random
-- [ ] Hacer una vista donde la gente pueda agregar una URL a un repo basado en alguna de estas API para que les sirva como inspiración al resto
