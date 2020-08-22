@@ -13,13 +13,11 @@ const Navbar = () => {
   const [hasName, setHasName] = useState(false);
   const user = useSelector((state) => state.authReducer.user);
   useEffect(() => {
-    console.log(user);
     if (user) {
       if (user.displayName !== null) {
         setHasName(true);
       }
     } else {
-      console.log("no tiene nombre ", hasName);
       setHasName(false);
     }
   }, [user, hasName, user.displayName]);
@@ -145,7 +143,6 @@ const Navbar = () => {
                 >
                   Agregar Proyectos
                 </Link>
-                {console.log("user", user)}
                 {user && (
                   <>
                     {hasName ? (
@@ -222,7 +219,6 @@ const Navbar = () => {
                 >
                   Agregar Proyectos
                 </Link>
-                {console.log("user", user)}
                 {user && (
                   <>
                     {hasName ? (
