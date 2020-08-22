@@ -65,7 +65,8 @@ const Login = () => {
       });
   };
   var actionCodeSettings = {
-    url: "http://localhost:3000",
+    url: "http://hatsu-dev.netlify.com/",
+    // url: "http://localhost:3000", //DEV
     // This must be true.
     handleCodeInApp: true,
   };
