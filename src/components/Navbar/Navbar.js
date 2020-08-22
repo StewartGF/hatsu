@@ -1,11 +1,63 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import ThemeToggle from "./ThemeToggle";
 import { useSelector } from "react-redux";
+import { toast } from "react-toastify";
+import { auth } from "../../configs/fbConfig";
+import { useDispatch } from "react-redux";
 
 const Navbar = () => {
+  const dispatch = useDispatch();
   const isDarkMode = useSelector((state) => state.themeReducer.isDarkMode);
   let [isOpen, setIsOpen] = useState(false);
+  const [hasName, setHasName] = useState(false);
+  const user = useSelector((state) => state.authReducer.user);
+  useEffect(() => {
+    console.log(user);
+    if (user) {
+      if (user.displayName !== null) {
+        setHasName(true);
+      }
+    } else {
+      console.log("no tiene nombre ", hasName);
+      setHasName(false);
+    }
+  }, [user, hasName, user.displayName]);
+  const handleLogout = () => {
+    auth
+      .signOut()
+      .then(function () {
+        // Sign-out successful.
+        toast("Adiós 👌 !", {
+          className: `font-black border-2 ${
+            isDarkMode ? "border-pink-dark text-2xl" : "border-red-500"
+          }`,
+          position: "top-left",
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: false,
+          draggable: true,
+          progress: undefined,
+        });
+        window.localStorage.removeItem("user");
+        dispatch({ type: "LOGOUT" });
+      })
+      .catch(function (error) {
+        toast("Oops intentalo nuevamente", {
+          className: `font-black border-2 ${
+            isDarkMode ? "border-pink-dark text-2xl" : "border-red-500"
+          }`,
+          position: "top-left",
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: false,
+          draggable: true,
+          progress: undefined,
+        });
+      });
+  };
   return (
     <div className=" ">
       <nav
@@ -93,6 +145,41 @@ const Navbar = () => {
                 >
                   Agregar Proyectos
                 </Link>
+                {console.log("user", user)}
+                {user && (
+                  <>
+                    {hasName ? (
+                      <></>
+                    ) : (
+                      <Link
+                        to="/register"
+                        className="font-black block order-last mt-4 md:inline-block md:mt-0 hover:text-gray-500  mr-4"
+                      >
+                        Actualiza tus datos
+                      </Link>
+                    )}
+                  </>
+                )}
+
+                {user ? (
+                  <>
+                    <button onClick={handleLogout}>Salir</button>
+                    <span
+                      className={`ml-6 ${
+                        isDarkMode ? "text-pink-dark" : "text-red-500"
+                      } font-black`}
+                    >
+                      Bienvenido {user.displayName ? `${user.displayName}` : ""}
+                    </span>
+                  </>
+                ) : (
+                  <Link
+                    to="/login"
+                    className="font-black block order-last mt-4 md:inline-block md:mt-0 hover:text-gray-500  mr-4"
+                  >
+                    Login
+                  </Link>
+                )}
               </div>
             </div>
           </div>
@@ -135,6 +222,40 @@ const Navbar = () => {
                 >
                   Agregar Proyectos
                 </Link>
+                {console.log("user", user)}
+                {user && (
+                  <>
+                    {hasName ? (
+                      <></>
+                    ) : (
+                      <Link
+                        to="/register"
+                        className="font-black block order-last mt-4 md:inline-block md:mt-0 hover:text-gray-500  mr-4"
+                      >
+                        Actualiza tus datos
+                      </Link>
+                    )}
+                  </>
+                )}
+                {user ? (
+                  <>
+                    <button onClick={handleLogout}>Salir</button>
+                    <span
+                      className={`ml-6 ${
+                        isDarkMode ? "text-pink-dark" : "text-red-500"
+                      } font-black`}
+                    >
+                      Bienvenido {user.displayName ? `${user.displayName}` : ""}
+                    </span>
+                  </>
+                ) : (
+                  <Link
+                    to="/login"
+                    className="font-black block order-last mt-4 md:inline-block md:mt-0 hover:text-gray-500  mr-4"
+                  >
+                    Login
+                  </Link>
+                )}
               </div>
             </div>
           </div>
