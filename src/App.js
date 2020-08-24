@@ -62,7 +62,7 @@ function App() {
     } else {
       setFinishingProcess(true);
     }
-  });
+  }, [setFinishingProcess, dispatch, user]);
   if (isDarkMode) {
     document.body.classList.remove("bg-white");
     document.body.classList.add("bg-dark-200");
