@@ -20,18 +20,23 @@ function Landing() {
   useEffect(() => {
     if (!firstLanding) return;
 
-    toast(`👋🏻 Bienvenido ${user ? user.displayName : ""} !`, {
-      className: `font-black border-2 ${
-        isDarkMode ? "border-pink-dark text-2xl" : "border-red-500"
-      }`,
-      position: "top-left",
-      autoClose: 4000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: false,
-      draggable: true,
-      progress: undefined,
-    });
+    toast(
+      `👋🏻 Bienvenido ${
+        user ? (user.displayName ? user.displayName : "") : ""
+      } !`,
+      {
+        className: `font-black border-2 ${
+          isDarkMode ? "border-pink-dark text-2xl" : "border-red-500"
+        }`,
+        position: "top-left",
+        autoClose: 4000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: true,
+        progress: undefined,
+      }
+    );
     dispatch({ type: "TOGGLE_FIRST_LANDING" });
   }, [isDarkMode, firstLanding, dispatch, user]);
   return (

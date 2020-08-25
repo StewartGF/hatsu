@@ -53,16 +53,21 @@ const Register = () => {
         })
         .then(function () {
           // Update successful.
-          toast.error("Nombre actualizado👌", {
+          toast("Nombre actualizado👌", {
+            className: `font-black border-2 ${
+              isDarkMode ? "border-pink-dark text-2xl" : "border-red-500"
+            }`,
             position: "bottom-center",
-            autoClose: 2000,
+            autoClose: 4000,
             hideProgressBar: false,
             closeOnClick: true,
-            pauseOnHover: true,
+            pauseOnHover: false,
             draggable: true,
             progress: undefined,
           });
+
           dispatch({ type: "SET_USER", payload: user });
+          setData({ name: "" });
         })
         .catch(function (error) {
           // An error happened.
@@ -88,7 +93,7 @@ const Register = () => {
                 <span role="img" aria-label="img">
                   📜
                 </span>
-                Proceso de registro
+                Actualiza tu perfil
               </p>
             </div>
           </div>
