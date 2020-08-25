@@ -65,8 +65,8 @@ const Login = () => {
       });
   };
   var actionCodeSettings = {
-    url: "http://hatsu-dev.netlify.com/",
-    // url: "http://localhost:3000", //DEV
+    url: "http://hatsu-dev.netlify.com/auth-validation",
+    // url: "http://localhost:3000/auth-validation", //DEV
     // This must be true.
     handleCodeInApp: true,
   };

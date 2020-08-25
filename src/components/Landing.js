@@ -16,23 +16,29 @@ function Landing() {
     (state) => state.themeReducer.isFirstLanding
   );
   const isDarkMode = useSelector((state) => state.themeReducer.isDarkMode);
+  const user = useSelector((state) => state.authReducer.user);
   useEffect(() => {
     if (!firstLanding) return;
 
-    toast("👋🏻 Bienvenido !", {
-      className: `font-black border-2 ${
-        isDarkMode ? "border-pink-dark text-2xl" : "border-red-500"
-      }`,
-      position: "top-left",
-      autoClose: 4000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: false,
-      draggable: true,
-      progress: undefined,
-    });
+    toast(
+      `👋🏻 Bienvenido ${
+        user ? (user.displayName ? user.displayName : "") : ""
+      } !`,
+      {
+        className: `font-black border-2 ${
+          isDarkMode ? "border-pink-dark text-2xl" : "border-red-500"
+        }`,
+        position: "top-left",
+        autoClose: 4000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: true,
+        progress: undefined,
+      }
+    );
     dispatch({ type: "TOGGLE_FIRST_LANDING" });
-  }, [isDarkMode, firstLanding, dispatch]);
+  }, [isDarkMode, firstLanding, dispatch, user]);
   return (
     <>
       <div className="container mx-auto text-center relative  h-full align-middle px-8 pb-8 pt-2">

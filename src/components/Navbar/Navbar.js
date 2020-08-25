@@ -5,6 +5,10 @@ import { useSelector } from "react-redux";
 import { toast } from "react-toastify";
 import { auth } from "../../configs/fbConfig";
 import { useDispatch } from "react-redux";
+import Account from "./Account";
+import { BsPersonFill } from "react-icons/bs";
+import { FiLogOut } from "react-icons/fi";
+import { IoIosArrowDown } from "react-icons/io";
 
 const Navbar = () => {
   const dispatch = useDispatch();
@@ -108,6 +112,15 @@ const Navbar = () => {
           <div className="block w-full flex-grow md:flex md:items-center md:w-auto">
             <div className="w-full block flex-grow md:flex md:items-center md:w-auto">
               <div className="text-sm md:flex-grow">
+                {user && (
+                  <span
+                    className={`md:hidden block mt-6 ${
+                      isDarkMode ? "text-pink-dark" : "text-red-500"
+                    } font-black`}
+                  >
+                    Bienvenido {user.displayName}
+                  </span>
+                )}
                 <Link
                   onClick={() => setIsOpen(!isOpen)}
                   to="/"
@@ -145,37 +158,45 @@ const Navbar = () => {
                 </Link>
                 {user && (
                   <>
-                    {hasName ? (
-                      <></>
-                    ) : (
-                      <Link
-                        to="/register"
-                        className="font-black block order-last mt-4 md:inline-block md:mt-0 hover:text-gray-500  mr-4"
-                      >
-                        Actualiza tus datos
-                      </Link>
-                    )}
+                    <Link
+                      onClick={() => setIsOpen(!isOpen)}
+                      to="/register"
+                      className="font-black block order-last mt-4 md:inline-block md:mt-0 hover:text-gray-500  mr-4"
+                    >
+                      <BsPersonFill className="inline-block mr-2 hover:text-white" />
+                      Actualiza tus datos
+                    </Link>
                   </>
                 )}
 
                 {user ? (
                   <>
-                    <button onClick={handleLogout}>Salir</button>
-                    <span
-                      className={`ml-6 ${
-                        isDarkMode ? "text-pink-dark" : "text-red-500"
-                      } font-black`}
+                    <button
+                      onClick={handleLogout}
+                      className="font-black block order-last mt-4 md:inline-block md:mt-0 hover:text-gray-500  mr-4"
                     >
-                      Bienvenido {user.displayName ? `${user.displayName}` : ""}
-                    </span>
+                      <FiLogOut className="inline-block mr-2" />
+                      Salir
+                    </button>
                   </>
                 ) : (
-                  <Link
-                    to="/login"
-                    className="font-black block order-last mt-4 md:inline-block md:mt-0 hover:text-gray-500  mr-4"
-                  >
-                    Login
-                  </Link>
+                  <>
+                    {user ? (
+                      <>
+                        {user.displayName ? `${user.displayName}` : "Cuenta"}
+                        <IoIosArrowDown className="ml-4 inline-block" />
+                      </>
+                    ) : (
+                      <Link
+                        to="/login"
+                        onClick={() => setIsOpen(!isOpen)}
+                        className="font-black block order-last mt-4 md:inline-block md:mt-0 hover:text-gray-500  mr-4"
+                      >
+                        <BsPersonFill className="inline-block mr-2 hover:text-white" />
+                        Iniciar sesión
+                      </Link>
+                    )}
+                  </>
                 )}
               </div>
             </div>
@@ -185,73 +206,36 @@ const Navbar = () => {
             <div className="w-full block flex-grow md:flex md:items-center md:w-auto">
               <div className="text-sm md:flex-grow">
                 <Link
-                  onClick={() => setIsOpen(!isOpen)}
                   to="/"
                   className="block mt-4 md:inline-block md:mt-0 hover:text-gray-500 font-black mr-4"
                 >
                   Inicio
                 </Link>
                 <Link
-                  onClick={() => setIsOpen(!isOpen)}
                   to="/api"
                   className="block mt-4 md:inline-block md:mt-0 hover:text-gray-500 font-black mr-4"
                 >
                   APIs Públicas
                 </Link>
                 <Link
-                  onClick={() => setIsOpen(!isOpen)}
                   to="/projects"
                   className="block mt-4 md:inline-block md:mt-0 hover:text-gray-500 font-black mr-4"
                 >
                   Proyectos
                 </Link>
                 <Link
-                  onClick={() => setIsOpen(!isOpen)}
                   to="/add-api"
                   className="block mt-4 md:inline-block md:mt-0 hover:text-gray-500 font-black mr-4"
                 >
                   Agregar API
                 </Link>
                 <Link
-                  onClick={() => setIsOpen(!isOpen)}
                   to="/add-project"
                   className="font-black block mt-4 md:inline-block md:mt-0 hover:text-gray-500  mr-4"
                 >
                   Agregar Proyectos
                 </Link>
-                {user && (
-                  <>
-                    {hasName ? (
-                      <></>
-                    ) : (
-                      <Link
-                        to="/register"
-                        className="font-black block order-last mt-4 md:inline-block md:mt-0 hover:text-gray-500  mr-4"
-                      >
-                        Actualiza tus datos
-                      </Link>
-                    )}
-                  </>
-                )}
-                {user ? (
-                  <>
-                    <button onClick={handleLogout}>Salir</button>
-                    <span
-                      className={`ml-6 ${
-                        isDarkMode ? "text-pink-dark" : "text-red-500"
-                      } font-black`}
-                    >
-                      Bienvenido {user.displayName ? `${user.displayName}` : ""}
-                    </span>
-                  </>
-                ) : (
-                  <Link
-                    to="/login"
-                    className="font-black block order-last mt-4 md:inline-block md:mt-0 hover:text-gray-500  mr-4"
-                  >
-                    Login
-                  </Link>
-                )}
+                <Account />
               </div>
             </div>
           </div>
