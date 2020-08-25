@@ -2,6 +2,7 @@ import React, { useState, useRef } from "react";
 import { auth } from "../../configs/fbConfig";
 import { useSelector } from "react-redux";
 import { toast } from "react-toastify";
+import Loading from "../Loading";
 
 //CUSTOM HOOKS
 const useFocus = () => {
@@ -13,6 +14,7 @@ const useFocus = () => {
 };
 
 const Login = () => {
+  const [loading, setLoading] = useState(false);
   const isDarkMode = useSelector((state) => state.themeReducer.isDarkMode);
   const [data, setData] = useState({
     email: "",
@@ -25,6 +27,7 @@ const Login = () => {
       dropAnAlert();
       return;
     }
+
     handleSubmit();
   };
   const dropAnAlert = () => {
@@ -41,28 +44,37 @@ const Login = () => {
   const handleDataChange = (event) => {
     setData({ ...data, [event.target.name]: event.target.value });
   };
-  const handleSubmit = () => {
-    auth
-      .sendSignInLinkToEmail(data.email, actionCodeSettings)
-      .then(function () {
-        // The link was successfully sent. Inform the user.
-        // Save the email locally so you don't need to ask the user for it again
-        // if they open the link on the same device.
-        window.localStorage.setItem("emailForSignIn", data.email);
-        toast("🧙🏻‍♂️ Listo !, te enviaremos un email", {
-          position: "bottom-center",
-          autoClose: 3000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-        });
-      })
-      .catch(function (error) {
-        // Some error occurred, you can inspect the code: error.code
-        console.log(error.code);
+  const handleSubmit = async () => {
+    try {
+      setLoading(true);
+
+      await auth.sendSignInLinkToEmail(data.email, actionCodeSettings);
+      window.localStorage.setItem("emailForSignIn", data.email);
+      setData({
+        email: "",
       });
+      toast("🧙🏻‍♂️ Listo !, te enviaremos un email", {
+        position: "bottom-center",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+      setLoading(false);
+    } catch (error) {
+      toast.error("🧙🏻‍♂️ Ups ! hubo un problema, intenta nuevamente", {
+        position: "bottom-center",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+      setLoading(false);
+    }
   };
   var actionCodeSettings = {
     url: "http://hatsu-dev.netlify.com/auth-validation",
@@ -122,6 +134,7 @@ const Login = () => {
           Ingresar
         </button>
       </div>
+      {loading ? <Loading /> : ""}
     </div>
   );
 };
