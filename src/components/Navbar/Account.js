@@ -31,6 +31,7 @@ const Account = () => {
         });
         window.localStorage.removeItem("user");
         dispatch({ type: "LOGOUT" });
+        setOpen(!open);
       })
       .catch(function (error) {
         toast("Oops intentalo nuevamente", {
