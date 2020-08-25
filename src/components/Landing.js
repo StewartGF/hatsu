@@ -29,7 +29,7 @@ function Landing() {
           isDarkMode ? "border-pink-dark text-2xl" : "border-red-500"
         }`,
         position: "top-left",
-        autoClose: 4000,
+        autoClose: 2000,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: false,
