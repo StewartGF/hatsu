@@ -42,12 +42,12 @@ const Project = (props) => {
           <div
             className={`border-b-4 ${
               isDarkMode ? "border-pink-dark" : "border-red-500"
-            }  p-2`}
+            }  p-2 pt-8 md:pt-6 lg:pt-2`}
           >
             <img
               src={data.imageURL}
               alt=""
-              className="h-40 md:h-48 w-full  rounded"
+              className="h-56 md:h-72 lg:h-48 w-full  rounded"
             />
           </div>
         </div>

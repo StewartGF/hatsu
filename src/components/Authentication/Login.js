@@ -1,8 +1,9 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { auth } from "../../configs/fbConfig";
 import { useSelector } from "react-redux";
 import { toast } from "react-toastify";
 import Loading from "../Loading";
+import { analytics } from "../../configs/fbConfig";
 
 //CUSTOM HOOKS
 const useFocus = () => {
@@ -20,6 +21,9 @@ const Login = () => {
     email: "",
   });
   const [emailInput, setEmailInput] = useFocus();
+  useEffect(() => {
+    analytics().logEvent("login_page_view", { landing_at: Date.now() });
+  });
   const validateSubmit = (e) => {
     e.preventDefault();
     if (data.email === "") {
