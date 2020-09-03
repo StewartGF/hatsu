@@ -9,6 +9,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { toast } from "react-toastify";
 import { Link } from "react-router-dom";
 import { BsChevronDoubleDown } from "react-icons/bs";
+import { analytics } from "../configs/fbConfig";
 
 function Landing() {
   const dispatch = useDispatch();
@@ -18,6 +19,11 @@ function Landing() {
   const isDarkMode = useSelector((state) => state.themeReducer.isDarkMode);
   const user = useSelector((state) => state.authReducer.user);
   useEffect(() => {
+    analytics().setCurrentScreen(window.location.pathname); // sets `screen_name` parameter
+    analytics().logEvent("screen_view"); // log event with `screen_name` parameter attached
+    analytics().logEvent("landing_page_view", { landing_at: Date.now() });
+  });
+  useEffect(() => {
     if (!firstLanding) return;
 
     toast(
@@ -26,7 +32,7 @@ function Landing() {
       } !`,
       {
         className: `font-black border-2 ${
-          isDarkMode ? "border-pink-dark text-2xl" : "border-red-500"
+          isDarkMode ? "border-pink-dark text-xl" : "border-red-500"
         }`,
         position: "top-left",
         autoClose: 2000,
