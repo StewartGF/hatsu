@@ -36,8 +36,10 @@ Se implementará un BaaS, en este caso Firebase🔥 para almacenar la informaci�
 - [x] Corregir problemas con estado de la vista de Apis
 - [x] Modificar la vista de proyectos
 - [x] Implementar autenticacion de Firebase
-- [ ] Mejorar el proceso de login post-recibido el correo electrónico
-- [ ] Agregar que los formularios de creación solo sean visibles logueados
-- [ ] Crear vista de Admin, para aceptar peticiones de creación de proyectos y apis
-- [ ] Agregar una forma de analitica
-- [ ] Agregar Reglas en Firebase para seguridad de la información
+- [x] Agregar UserAgent al analytics de Firebase
+- [x] Parsear hora a DDMMYY HH:MM:SS en analytics
+- [x] Mejorar el proceso de login post-recibido el correo electrónico
+- [x] Agregar que los formularios de creación solo sean visibles logueados
+- [x] Crear vista de Admin, para aceptar peticiones de creación de proyectos y apis
+- [x] Agregar una forma de analitica
+- [x] Agregar Reglas en Firebase para seguridad de la información
